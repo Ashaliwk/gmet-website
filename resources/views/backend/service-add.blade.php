@@ -10,7 +10,7 @@
             </a>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ url('/admin/service-add') }}">
+            <form method="POST" action="{{ url('/admin/service-add') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-8 mb-3">
@@ -32,8 +32,8 @@
 
                 <div class="row">
                     <div class="col-md-4 mb-3">
-                        <label class="font-weight-bold">Icon Symbol</label>
-                        <input type="text" class="form-control" name="icon" value="{{ old('icon', '✦') }}" placeholder="✦ or fa class">
+                        <label class="font-weight-bold">Service Image</label>
+                        <input type="file" class="form-control" name="image" accept="image/*">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="font-weight-bold">Display Order</label>

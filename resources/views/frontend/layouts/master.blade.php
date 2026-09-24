@@ -8,7 +8,7 @@
   <meta
     name="description"
     content="Geo Mapping Engineering & Technologies (GMET) — geospatial, engineering, GIS, remote sensing, surveying, UAV, Web GIS and GeoAI solutions." />
-  <link rel="icon" type="image/jpeg" href="{{ asset('assets/images/gmet-logo.jpeg') }}">
+  <link rel="icon" type="image/jpeg" href="{{ asset('assets/images/gmet-logo.png') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -26,13 +26,20 @@
 
 <body>
   <nav class="navbar navbar-expand-xl fixed-top site-nav">
-    <div class="container">
+    <div class="container-fluid ms-5">
       <a
-        class="navbar-brand d-flex align-items-center gap-2"
+        class="navbar-brand d-flex align-items-center gap-2 mt-2"
         href="{{ url('/') }}"><img
-          src="{{ asset('assets/images/gmet-logo.jpeg') }}"
-          alt="GMET logo"
-          class="brand-logo" /><span>GME <b>TECHNOLOGIES</b><small>Geo Mapping Engineering & Technologies</small></span></a><button
+                        src="{{ asset('assets/images/gmet-logo.png') }}"
+                        alt="GMET Logo"
+                        style="
+        width: 98px !important;
+        height: 98px !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        border-radius: 20px;
+    "><span class="fs-3">GME <b>TECHNOLOGIES</b><h6>Geo Mapping Engineering & Technologies</h6></span></a><button
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
@@ -87,7 +94,7 @@
       <div class="row g-4">
         <div class="col-lg-5">
           <img
-            src="{{ asset('assets/images/gmet-logo.jpeg') }}"
+            src="{{ asset('assets/images/gmet-logo.png') }}"
             class="footer-logo"
             alt="GMET logo" />
           <h4>GME TECHNOLOGIES</h4>

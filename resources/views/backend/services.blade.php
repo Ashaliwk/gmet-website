@@ -39,7 +39,7 @@
                         @foreach ($services as $srv)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td class="text-center font-weight-bold text-success" style="font-size: 18px;">{{ $srv->icon }}</td>
+                            <td class="text-center font-weight-bold text-success" style="font-size: 18px;">                            <img src="{{ asset('storage/' . $srv->image) }}" alt="{{ $srv->title }}" style="max-height:40px;"></td>
                             <td class="font-weight-bold">{{ $srv->title }}</td>
                             <td>{{ Str::limit($srv->description, 100) }}</td>
                             <td><span class="badge badge-info">{{ $srv->category ?: 'General' }}</span></td>

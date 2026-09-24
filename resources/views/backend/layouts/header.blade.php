@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/jpeg" href="{{ asset('assets/images/gmet-logo.jpeg') }}">
+    <link rel="icon" type="image/jpeg" href="{{ asset('assets/images/gmet-logo.png') }}">
     <link href="{{ url('backend/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="{{ url('backend/css/admin.min.css') }}" rel="stylesheet">
@@ -17,6 +17,7 @@
             max-height: 42px;
             border-radius: 6px;
         }
+
         .badge-status {
             font-size: 80%;
             padding: 4px 8px;
@@ -27,11 +28,27 @@
 <body id="page-top">
     <div id="wrapper">
         <ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center py-4 mt-2" href="{{url('/admin')}}">
+            <a class="sidebar-brand d-flex align-items-center py-4 mt-2" href="{{ url('/admin') }}">
                 <div class="sidebar-brand-icon">
-                    <img src="{{ asset('assets/images/gmet-logo.jpeg') }}" alt="GMET Logo" style="width: auto; object-fit: contain; border-radius:20px;">
+                    <img
+                        src="{{ asset('assets/images/gmet-logo.png') }}"
+                        alt="GMET Logo"
+                        style="
+        width: 60px !important;
+        height: 60px !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        border-radius: 20px;
+    ">
                 </div>
-                <div class="sidebar-brand-text mx-2 font-weight-bold" style="letter-spacing: 0.5px;">GMET <span class="text-success font-weight-normal" style="font-size: 11px; display: block;">ADMIN</span></div>
+
+                <div class="sidebar-brand-text mx-2 font-weight-bold" style="letter-spacing: 0.5px;">
+                    GMET
+                    <span class="text-success font-weight-normal" style="font-size:11px; display:block;">
+                        ADMIN
+                    </span>
+                </div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item {{ Request::is('admin') ? 'active':''}}">

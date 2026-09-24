@@ -24,7 +24,7 @@ class AdminServicesController extends Controller
         $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
-            'icon'        => 'nullable|string|max:50',
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category'    => 'nullable|string|max:100',
             'order'       => 'nullable|integer',
         ]);
@@ -32,7 +32,7 @@ class AdminServicesController extends Controller
         Services::create([
             'title'       => $request->title,
             'description' => $request->description,
-            'icon'        => $request->icon ?: '✦',
+            'image'       => $request->hasFile('image') ? $request->file('image')->store('services','public') : null,
             'category'    => $request->category,
             'order'       => $request->order ?: 0,
             'status'      => $request->has('status') ? 1 : 0,
@@ -52,7 +52,7 @@ class AdminServicesController extends Controller
         $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
-            'icon'        => 'nullable|string|max:50',
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category'    => 'nullable|string|max:100',
             'order'       => 'nullable|integer',
         ]);
@@ -61,7 +61,7 @@ class AdminServicesController extends Controller
         $service->update([
             'title'       => $request->title,
             'description' => $request->description,
-            'icon'        => $request->icon ?: '✦',
+            'image'       => $request->hasFile('image') ? $request->file('image')->store('services','public') : $service->image,
             'category'    => $request->category,
             'order'       => $request->order ?: 0,
             'status'      => $request->has('status') ? 1 : 0,
