@@ -103,6 +103,98 @@
     </div>
   </section>
 
+<section class="why-choose-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-4">
+                <div class="why-badge">
+                    <span></span>
+                    OUR EXCELLENCE
+                </div>
+                <h2 class="why-title">
+                    WHY CHOOSE
+                    <br>
+                    US
+                    <br>
+                    <strong>FOR</strong>
+                    <br>
+                    <strong>PROJECTS!</strong>
+                </h2>
+                <p class="why-description">
+                    We take pride in delivering top-quality spatial
+                    solutions that are tailored to meet the unique
+                    needs of our clients.
+                </p>
+                <a href="{{ url('/services') }}" class="why-button">
+                    VIEW ALL SERVICES
+                </a>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="why-card">
+                            <div class="why-icon">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <div class="why-card-content">
+                                <h3>Client Focused Approach</h3>
+                                <p>
+                                    Tailored services with a client-first
+                                    approach.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="why-card">
+                            <div class="why-icon">
+                                <i class="fa-solid fa-hard-hat"></i>
+                            </div>
+                            <div class="why-card-content">
+                                <h3>Timely Deliveries</h3>
+                                <p>
+                                    On-schedule and quality deliveries for
+                                    all projects.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="why-card">
+                            <div class="why-icon">
+                                <i class="fa-solid fa-desktop"></i>
+                            </div>
+                            <div class="why-card-content">
+                                <h3>Modern Technique</h3>
+                                <p>
+                                    Innovative GIS solutions with modern
+                                    techniques.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="why-card">
+                            <div class="why-icon">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="why-card-content">
+                                <h3>Experienced Staff</h3>
+                                <p>
+                                    Highly professional team for exceptional
+                                    results.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
   <section class="section">
     <div class="container">
       <div class="row g-5 align-items-center">

@@ -28,18 +28,26 @@
   <nav class="navbar navbar-expand-xl fixed-top site-nav">
     <div class="container-fluid ms-5">
       <a
-        class="navbar-brand d-flex align-items-center gap-2 mt-2"
-        href="{{ url('/') }}"><img
-                        src="{{ asset('assets/images/gmet-logo.png') }}"
-                        alt="GMET Logo"
-                        style="
-        width: 98px !important;
-        height: 98px !important;
-        max-width: none !important;
-        max-height: none !important;
-        object-fit: contain !important;
-        border-radius: 20px;
-    "><span class="fs-3">GME <b>TECHNOLOGIES</b><h6>Geo Mapping Engineering & Technologies</h6></span></a><button
+        class="navbar-brand d-flex align-items-center gap-2"
+        href="{{ url('/') }}">
+
+        <img
+          src="{{ asset('assets/images/gmet-logo.png') }}"
+          alt="GMET Logo"
+          style="
+            width: 65px !important;
+            height: 65px !important;
+            max-width: none !important;
+            max-height: none !important;
+            object-fit: contain !important;
+            border-radius: 15px;
+        ">
+        <span class="fs-2">
+          GME <b>TECHNOLOGIES</b>
+          <h6 class="mb-0">Geo Mapping Engineering & Technologies</h6>
+        </span>
+
+      </a><button
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
@@ -88,40 +96,139 @@
   </nav>
 
   @yield('content')
-
   <footer class="site-footer">
     <div class="container py-5">
-      <div class="row g-4">
-        <div class="col-lg-5">
-          <img
-            src="{{ asset('assets/images/gmet-logo.png') }}"
-            class="footer-logo"
-            alt="GMET logo" />
-          <h4>GME TECHNOLOGIES</h4>
-          <p>
-            Geo Mapping Engineering & Technologies — transforming geospatial
-            intelligence into impact.
+      <div class="row g-5">
+        <div class="col-lg-4 footer-company">
+          <div class="footer-brand">
+            <img
+              src="{{ asset('assets/images/gmet-logo.png') }}"
+              class="footer-logo"
+              alt="GMET logo" />
+            <div class="footer-brand-text">
+              <h4 class="mb-3">GME TECHNOLOGIES</h4>
+            </div>
+          </div>
+          <p class="footer-description">
+            Geo Mapping Engineering & Technologies — transforming
+            geospatial intelligence into impact.
           </p>
+          <div class="footer-contact">
+            <a href="mailto:info@gmetechnologies.com">
+              <span class="contact-icon">
+                <i class="fa-regular fa-envelope"></i>
+              </span>
+              <span>info@gmetechnologies.com</span>
+            </a>
+            <a href="tel:+923145485076">
+              <span class="contact-icon">
+                <i class="fa-solid fa-phone"></i>
+              </span>
+              <span>+92 3145485076</span>
+            </a>
+            <a href="tel:+92516126643">
+              <span class="contact-icon">
+                <i class="fa-solid fa-phone"></i>
+              </span>
+              <span>+92 51-6126643</span>
+            </a>
+            <div class="footer-address">
+              <span class="contact-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </span>
+              <span>
+                Office #103 & 104, 1st Floor, Rawal Mall &
+                Residencia, Rawalpindi
+              </span>
+            </div>
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/feed/" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61593893199538"
+              aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
-          <h6>Explore</h6>
-          <a href="{{ url('/about') }}">About Us</a><a href="{{ url('/services') }}">Services</a><a href="{{ url('/team') }}">Our Team</a><a href="{{ url('/projects') }}">Projects</a><a href="{{ url('/partners') }}">Partners & Clients</a>
+        <div class="col-lg-1"></div>
+        <div class="col-sm-4 col-lg-2 footer-column">
+          <h6>
+            <span class="footer-line"></span>
+            Services
+          </h6>
+          <div class="ms-4">
+            <a href="{{ url('/services') }}">
+             Web GIS
+            </a>
+             <a href="{{ url('/services') }}">
+             GeoAI
+            </a>
+             <a href="{{ url('/services') }}">
+             LULC
+            </a>
+             <a href="{{ url('/services') }}">
+             Landslide Mapping
+            </a>
+             <a href="{{ url('/services') }}">
+             Town Planning
+            </a>
+          </div>
         </div>
-        <div class="col-sm-6 col-lg-4">
-          <h6>Get In Touch</h6>
-          <p>
-            Office #103 & 104, 1st Floor, Rawal Mall & Residencia, Rawalpindi
-          </p>
-          <a href="mailto:info@gmetechnologies.com">info@gmetechnologies.com</a><a href="tel:+923145485076">+92 3145485076</a><a href="tel:+92516126643">+92 51-6126643</a>
-          <div class="mt-2">
-            <a href="https://www.linkedin.com/feed/"> <i class="fa-brands fa-linkedin fs-3"></i> </a>
-            <a href="https://www.facebook.com/profile.php?id=61593893199538"> <i class="ms-2 fa-brands fa-facebook fs-3"></i> </a>
+        <div class="col-sm-4 col-lg-2 footer-column me-5">
+          <h6>
+            <span class="footer-line"></span>
+            Applications
+          </h6>
+          <div class="ms-4">
+            <div class="ms-4">
+            <a href="{{ url('/partners') }}">
+             Government and Civil
+            </a>
+            <a href="{{ url('/partners') }}">
+              Agriculture
+            </a>
+            <a href="{{ url('/partners') }}">
+              Construction
+            </a>
+            <a href="{{ url('/partners') }}">
+              Enviromental
+            </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-lg-2 footer-column">
+          <h6>
+            <span class="footer-line"></span>
+            Company
+          </h6>
+          <div class="ms-4">
+            <a href="{{ url('/about') }}">
+              About Us
+            </a>
+            <a href="{{ url('/team') }}">
+              Our Team
+            </a>
+            <a href="{{ url('/projects') }}">
+              Projects
+            </a>
+            <a href="{{ url('/partner') }}">
+              Partners
+            </a>
+            <a href="{{ url('/contact') }}">
+              Contact
+            </a>
           </div>
         </div>
       </div>
-      <hr />
-      <div class="small d-flex flex-wrap justify-content-between gap-2">
-        <span>© 2026 GME Technologies. All rights reserved.</span><span>Turning Data, Technology & Ideas into Impact</span>
+      <div class="footer-bottom">
+        <span>
+          © 2026 GME Technologies. All rights reserved.
+        </span>
+        <span>
+          Turning Data, Technology & Ideas into Impact
+        </span>
       </div>
     </div>
   </footer>
