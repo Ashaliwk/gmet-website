@@ -103,20 +103,7 @@
                 </div>
             </li>
 
-            <!-- Partners -->
-            <li class="nav-item {{ Request::is('admin/partner*') ? 'active':''}}">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
-                    aria-expanded="true" aria-controls="collapsePartners">
-                    <i class="fas fa-fw fa-handshake"></i>
-                    <span>Partners</span>
-                </a>
-                <div id="collapsePartners" class="collapse {{ Request::is('admin/partner*') ? 'show':''}}" aria-labelledby="headingPartners" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item {{ Request::is('admin/partners') ? 'active':''}}" href="{{url('/admin/partners')}}">All Partners</a>
-                        <a class="collapse-item {{ Request::is('admin/partner-add') ? 'active':''}}" href="{{url('/admin/partner-add')}}">Add Partner</a>
-                    </div>
-                </div>
-            </li>
+            {{-- Partners feature removed --}}
             <li class="nav-item {{ Request::is('admin/blog*') ? 'active':''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog"
                     aria-expanded="true" aria-controls="collapseBlog">

@@ -66,11 +66,6 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <label class="font-weight-bold">Project Image / Document</label>
-                        <input type="file" class="form-control-file border p-1" name="image">
-                    </div>
-
                     <div class="col-md-4 mb-3 d-flex align-items-center pt-4">
                         <div class="custom-control custom-checkbox mr-4">
                             <input type="checkbox" class="custom-control-input" id="featuredCheck" name="is_featured" value="1">

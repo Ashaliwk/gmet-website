@@ -261,8 +261,9 @@ a {
 .team-card:hover,
 .partner-card:hover,
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 45px rgba(25, 70, 30, 0.12);
+    transform: translateY(-6px);
+    border-color: #099a34;
+    box-shadow: 0 14px 35px rgba(9, 154, 52, 0.25) !important;
 }
 .value-card span {
     font-weight: 900;
@@ -1631,4 +1632,33 @@ body.dark .stat-card {
     .team-img-wrap {
         height: 230px;
     }
+}
+
+/* Carousel overrides: show images behind single text without hero background/shadow */
+.carousel .hero {
+    background: none !important;
+    color: var(--text) !important;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.carousel .hero:before {
+    display: none !important;
+}
+.carousel .hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.carousel .hero h1,
+.carousel .hero h1 span,
+.carousel .hero p {
+    color: var(--text) !important;
+}
+.carousel .hero .eyebrow,
+.carousel .hero .hero-tags span {
+    color: var(--gmet-green) !important;
 }

@@ -1,4 +1,3 @@
-```blade
 @extends('frontend.layouts.master')
 @section('title', 'Blog')
 @section('content')
@@ -10,7 +9,7 @@
     </div>
 </header>
 
-<div class="container py-5 text-center">
+<div class="container py-5 mt-5 text-center">
     <div class="mb-4">
         <span class="eyebrow">Our Blog</span>
         <h2 class="blog-section-title">Explore Our Latest Insights</h2>
@@ -20,22 +19,22 @@
         <p class="text-muted">No blog posts have been published yet.</p>
     @else
         <div class="row g-4 mt-4">
-            @foreach($blogs as $blog)
-                <div class="col-md-4">
-                    <div class="card blog-card h-100 shadow-sm">
-                        @if($blog->image)
-                            <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top blog-image" alt="{{ $blog->title }}">
-                        @endif
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="blog-title">{{ $blog->title }}</h5>
-                            <p class="blog-excerpt">{{ Str::limit(strip_tags($blog->content), 120) }}</p>
-                        </div>
-                        <div class="card-footer blog-footer">
-                            {{ $blog->created_at->format('M d, Y') }}
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+@foreach($blogs as $blog)
+    <div class="col-md-4">
+        <div class="card blog-card h-100 shadow-sm" style="cursor:pointer;" data-title="{{ $blog->title }}" data-image="{{ $blog->image ? asset('storage/' . $blog->image) : '' }}" data-content="{{ htmlentities($blog->content) }}" data-date="{{ $blog->created_at->format('M d, Y') }}">
+            @if($blog->image)
+                <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top blog-image" alt="{{ $blog->title }}">
+            @endif
+            <div class="card-body d-flex flex-column">
+                <h5 class="blog-title mt-2">{{ $blog->title }}</h5>
+                <p class="blog-excerpt">{{ Str::limit(strip_tags($blog->content), 120) }}</p>
+            </div>
+            <div class="card-footer blog-footer">
+                {{ $blog->created_at->format('M d, Y') }}
+            </div>
+        </div>
+    </div>
+@endforeach
         </div>
 
         <div class="mt-4">
@@ -43,6 +42,57 @@
         </div>
     @endif
 </div>
+@section('content')
+    <!-- Blog list content (existing) -->
+    @parent
+    <!-- Blog Modal -->
+    <div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="blogModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="blogModalImage" src="" class="img-fluid mb-3" style="display:none;" />
+                    <p id="blogModalContent"></p>
+                </div>
+                <div class="modal-footer">
+                    <small class="text-muted" id="blogModalDate"></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modal = new bootstrap.Modal(document.getElementById('blogModal'));
+        document.querySelectorAll('.blog-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.dataset.title;
+                const image = card.dataset.image;
+                const content = card.dataset.content;
+                const date = card.dataset.date;
+
+                document.getElementById('blogModalLabel').textContent = title;
+                const imgEl = document.getElementById('blogModalImage');
+                if (image) {
+                    imgEl.src = image;
+                    imgEl.style.display = 'block';
+                } else {
+                    imgEl.style.display = 'none';
+                }
+                // decode HTML entities for content
+                const txt = document.createElement('textarea');
+                txt.innerHTML = content;
+                document.getElementById('blogModalContent').innerHTML = txt.value;
+                document.getElementById('blogModalDate').textContent = date;
+
+                modal.show();
+            });
+        });
+    });
+    </script>
 @endsection
 
 <style>
@@ -71,8 +121,9 @@
 }
 
 .blog-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(24, 59, 58, 0.1) !important;
+    transform: translateY(-6px);
+    border-color: #099a34;
+    box-shadow: 0 14px 35px rgba(9, 154, 52, 0.25) !important;
 }
 
 .blog-image {
@@ -94,10 +145,6 @@
     color: #687878;
     font-size: 14px;
     line-height: 1.7;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 .blog-footer {
