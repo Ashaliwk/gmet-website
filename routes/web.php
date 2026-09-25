@@ -31,7 +31,6 @@ Route::get('/resources', [FrontendController::class, 'resources'])->name('fronte
 Route::get('/contact', [FrontendController::class, 'contact'])->name('frontend.contact');
 Route::post('/contact', [FrontendController::class, 'submitContact'])->name('frontend.contact.submit');
 
-// Static HTML url backward compatibility redirects
 Route::redirect('/index.html', '/');
 Route::redirect('/pages/about.html', '/about');
 Route::redirect('/pages/services.html', '/services');
@@ -137,3 +136,19 @@ Route::get('/admin/review-edit/{id}', [AdminReviewController::class, 'editReview
 Route::put('/admin/review-edit/{id}', [AdminReviewController::class, 'updateReview'])->name('review.update');
 Route::patch('/admin/review-approve/{id}', [AdminReviewController::class, 'approveReview'])->name('review.approve');
 Route::delete('/admin/review-delete/{id}', [AdminReviewController::class, 'deleteReview'])->name('review.delete');
+
+// Blog management routes
+use App\Http\Controllers\frontend\BlogController as FrontBlogController;
+use App\Http\Controllers\backend\BlogController as AdminBlogController;
+
+// Frontend blog page
+Route::get('/blog', [FrontBlogController::class, 'index'])->name('frontend.blog');
+Route::get('/blog/{id}', [FrontBlogController::class, 'show'])->name('frontend.blog.show');
+
+// Admin blog CRUD
+Route::get('/admin/blogs', [AdminBlogController::class, 'index'])->name('admin.blogs');
+Route::get('/admin/blogs/create', [AdminBlogController::class, 'create'])->name('admin.blogs.create');
+Route::post('/admin/blogs', [AdminBlogController::class, 'store'])->name('admin.blogs.store');
+Route::get('/admin/blogs/{id}/edit', [AdminBlogController::class, 'edit'])->name('admin.blogs.edit');
+Route::put('/admin/blogs/{id}', [AdminBlogController::class, 'update'])->name('admin.blogs.update');
+Route::delete('/admin/blogs/{id}', [AdminBlogController::class, 'destroy'])->name('admin.blogs.destroy');

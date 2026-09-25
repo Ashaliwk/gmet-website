@@ -76,6 +76,9 @@
             <a class="nav-link {{ Request::is('partners*') ? 'active' : '' }}" href="{{ url('/partners') }}">Partners</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}" href="{{ url('/blog') }}">Blog</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link {{ Request::is('resources*') ? 'active' : '' }}" href="{{ url('/resources') }}">Resources</a>
           </li>
           <li class="nav-item">

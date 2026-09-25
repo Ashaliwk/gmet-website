@@ -76,8 +76,6 @@
                     </div>
                 </div>
             </li>
-
-            <!-- Team -->
             <li class="nav-item {{ Request::is('admin/team*') ? 'active':''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeam"
                     aria-expanded="true" aria-controls="collapseTeam">
@@ -91,8 +89,6 @@
                     </div>
                 </div>
             </li>
-
-            <!-- Projects -->
             <li class="nav-item {{ Request::is('admin/project*') ? 'active':''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProjects"
                     aria-expanded="true" aria-controls="collapseProjects">
@@ -112,7 +108,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
                     aria-expanded="true" aria-controls="collapsePartners">
                     <i class="fas fa-fw fa-handshake"></i>
-                    <span>Partners & Clients</span>
+                    <span>Partners</span>
                 </a>
                 <div id="collapsePartners" class="collapse {{ Request::is('admin/partner*') ? 'show':''}}" aria-labelledby="headingPartners" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -121,8 +117,19 @@
                     </div>
                 </div>
             </li>
-
-            <!-- Inquiries / Contact -->
+            <li class="nav-item {{ Request::is('admin/blog*') ? 'active':''}}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog"
+                    aria-expanded="true" aria-controls="collapseBlog">
+                    <i class="fas fa-fw fa-newspaper"></i>
+                    <span>Blog Management</span>
+                </a>
+                <div id="collapseBlog" class="collapse {{ Request::is('admin/blog*') ? 'show':''}}" aria-labelledby="headingBlog" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ Request::is('admin/blogs') ? 'active':''}}" href="{{url('/admin/blogs')}}">All Blogs</a>
+                        <a class="collapse-item {{ Request::is('admin/blogs/create') ? 'active':''}}" href="{{url('/admin/blogs/create')}}">Add Blog</a>
+                    </div>
+                </div>
+            </li>
             <li class="nav-item {{ Request::is('admin/contacts*') ? 'active':''}}">
                 <a class="nav-link" href="{{url('/admin/contacts')}}">
                     <i class="fas fa-fw fa-envelope"></i>
