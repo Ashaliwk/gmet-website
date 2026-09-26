@@ -20,4 +20,9 @@ class Services extends Model
         'order',
         'status',
     ];
+
+    public function images()
+    {
+        return $this->hasMany(\App\Models\backend\ServiceImage::class);
+    }
 }

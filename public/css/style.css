@@ -327,6 +327,12 @@ a {
     color: rgba(255, 255, 255, 0.72);
     font-size: 0.93rem;
 }
+.service-title {
+    margin-top: 6px;
+    color:black;
+    font-weight: 700;
+}
+
 .team-card {
     height: 100%;
     padding: 1.1rem;
@@ -624,13 +630,9 @@ a {
 .why-badge span {
     width: 10px;
     height: 10px;
-
     display: inline-block;
-
     background: var(--gmet-green);
-
     border-radius: 50%;
-
     box-shadow: 0 0 10px rgba(42, 151, 79, 0.45);
 }
 

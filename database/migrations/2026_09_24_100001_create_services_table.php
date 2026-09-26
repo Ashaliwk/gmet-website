@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('icon')->default('✦');
+            $table->longText('image')->nullable();
             $table->string('category')->nullable();
             $table->integer('order')->default(0);
             $table->boolean('status')->default(1);
@@ -23,9 +23,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('services');

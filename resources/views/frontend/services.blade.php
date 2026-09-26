@@ -17,10 +17,14 @@
       <div class="row g-4">
         @forelse($services as $service)
         <div class="col-md-6 col-xl-4 reveal">
-          <article class="service-card h-100">
-            <div class="service-icon">{{ $service->icon ?: '✦' }}</div>
+          <article class="team-card">
+            <div class="tcard">
+              <img src="{{ $service->image }}"
+                alt="{{ $service->title }}"
+                class="img-fluid">
+            </div>
             <div class="body">
-              <h3>{{ $service->title }}</h3>
+              <h5 class="service-title text-center">{{ $service->title }}</h5>
               <p>{{ $service->description }}</p>
             </div>
           </article>
@@ -44,11 +48,7 @@
         </p>
       </div>
       <div class="software-cloud">
-        <span>Python</span><span>ArcGIS</span><span>ArcGIS Pro</span
-        ><span>QGIS</span><span>Google Earth Engine</span
-        ><span>HEC-RAS</span><span>MATLAB</span><span>ENVI</span
-        ><span>ERDAS IMAGINE</span><span>R</span
-        ><span>TerraSync Professional</span>
+        <span>Python</span><span>ArcGIS</span><span>ArcGIS Pro</span><span>QGIS</span><span>Google Earth Engine</span><span>HEC-RAS</span><span>MATLAB</span><span>ENVI</span><span>ERDAS IMAGINE</span><span>R</span><span>TerraSync Professional</span>
       </div>
     </div>
   </section>

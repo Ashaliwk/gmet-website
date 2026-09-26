@@ -26,7 +26,7 @@
                     <thead class="thead-light">
                         <tr>
                             <th width="40px">#</th>
-                            <th width="50px">Icon</th>
+                            <th width="50px">Image</th>
                             <th>Title</th>
                             <th>Description</th>
                             <th width="110px">Category</th>
@@ -39,7 +39,14 @@
                         @foreach ($services as $srv)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td class="text-center font-weight-bold text-success" style="font-size: 18px;">                            <img src="{{ asset('storage/' . $srv->image) }}" alt="{{ $srv->title }}" style="max-height:40px;"></td>
+                            <td class="text-center font-weight-bold text-success" style="font-size: 18px;">@if($srv->image)
+                                <img src="{{ $srv->image }}"
+                                    alt="{{ $srv->title }}"
+                                    style="max-height:40px; max-width:60px; object-fit:contain;">
+                                @else
+                                <span class="text-muted">No Image</span>
+                                @endif
+                            </td>
                             <td class="font-weight-bold">{{ $srv->title }}</td>
                             <td>{{ Str::limit($srv->description, 100) }}</td>
                             <td><span class="badge badge-info">{{ $srv->category ?: 'General' }}</span></td>
@@ -49,9 +56,9 @@
                                     @csrf
                                     @method('PATCH')
                                     @if($srv->status == 1)
-                                        <button type="submit" class="btn btn-sm btn-success badge-status" title="Click to disable">Active</button>
+                                    <button type="submit" class="btn btn-sm btn-success badge-status" title="Click to disable">Active</button>
                                     @else
-                                        <button type="submit" class="btn btn-sm btn-secondary badge-status" title="Click to activate">Disabled</button>
+                                    <button type="submit" class="btn btn-sm btn-secondary badge-status" title="Click to activate">Disabled</button>
                                     @endif
                                 </form>
                             </td>
