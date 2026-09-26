@@ -10,7 +10,7 @@
         <button type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active hero-slide" style="background-image: url('{{ asset('assets/images/carousel1.jpeg') }}');">
+        <div class="carousel-item active hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c1.png') }}');">
           <div class="hero-overlay"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
@@ -34,11 +34,11 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/images/hero-remote-sensing.jpg') }}');">
+        <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c2.png') }}');">
           <div class="hero-overlay"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
-              <div class="col-lg-8 col-xl-7 hero-content">
+              <div class="col-lg-8 col-xl-7 hero-content mt-4">
                 <span class="eyebrow light">Advanced Geospatial Technology</span>
                 <h1>See the World Through <span>Remote Sensing.</span></h1>
                 <p class="lead">Transforming satellite and aerial data into meaningful information for environmental monitoring, land-use analysis, planning, and decision-making.</p>
@@ -56,11 +56,11 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/images/hero-surveying.jpg') }}');">
+        <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c3.png') }}');">
           <div class="hero-overlay"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
-              <div class="col-lg-8 col-xl-7 hero-content">
+              <div class="col-lg-8 col-xl-7 hero-content mt-4">
                 <span class="eyebrow light">Precision • Innovation • Intelligence</span>
                 <h1>Engineering Better Solutions with <span>Spatial Intelligence.</span></h1>
                 <p class="lead">From surveying and UAV mapping to Web GIS and GeoAI, GMET integrates modern technology to solve complex spatial and engineering challenges.</p>
@@ -79,14 +79,14 @@
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide="prev">
+      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
       <button class="carousel-control-next" type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-      </button>
+      </button> -->
     </div>
   </section>
 
