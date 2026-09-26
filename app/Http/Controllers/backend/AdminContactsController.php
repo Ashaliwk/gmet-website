@@ -29,3 +29,6 @@ class AdminContactsController extends Controller
         return redirect('/admin/contacts')->with('success', 'Inquiry deleted successfully!');
     }
 }
+
+
+/* THIS WEBSITE IS MADE BY MUHAMMAD ALI */

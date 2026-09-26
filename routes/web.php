@@ -152,3 +152,6 @@ Route::post('/admin/blogs', [AdminBlogController::class, 'store'])->name('admin.
 Route::get('/admin/blogs/{id}/edit', [AdminBlogController::class, 'edit'])->name('admin.blogs.edit');
 Route::put('/admin/blogs/{id}', [AdminBlogController::class, 'update'])->name('admin.blogs.update');
 Route::delete('/admin/blogs/{id}', [AdminBlogController::class, 'destroy'])->name('admin.blogs.destroy');
+
+
+/* THIS WEBSITE IS MADE BY MUHAMMAD ALI */

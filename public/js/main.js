@@ -44,3 +44,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }),
     );
 });
+
+/* THIS WEBSITE IS MADE BY MUHAMMAD ALI */
