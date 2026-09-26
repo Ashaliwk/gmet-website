@@ -26,77 +26,98 @@
 
 <body>
   <nav class="navbar navbar-expand-xl fixed-top site-nav">
-    <div class="container-fluid ms-5">
-      <a
-        class="navbar-brand d-flex align-items-center gap-2"
-        href="{{ url('/') }}">
+    <div class="container-fluid px-3 px-xl-5">
 
-        <img
-          src="{{ asset('assets/images/gmet-logo.png') }}"
-          alt="GMET Logo"
-          style="
-            width: 65px !important;
-            height: 65px !important;
-            max-width: none !important;
-            max-height: none !important;
-            object-fit: contain !important;
-            border-radius: 15px;
-        ">
-        <span class="fs-2">
-          GME <b>TECHNOLOGIES</b>
-          <h6 class="mb-0">Geo Mapping Engineering & Technologies</h6>
-        </span>
+        <a class="navbar-brand" href="{{ url('/') }}">
 
-      </a><button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#mainNav"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto align-items-xl-center">
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('about*') ? 'active' : '' }}" href="{{ url('/about') }}">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('services*') ? 'active' : '' }}" href="{{ url('/services') }}">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('team*') ? 'active' : '' }}" href="{{ url('/team') }}">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('projects*') ? 'active' : '' }}" href="{{ url('/projects') }}">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('partners*') ? 'active' : '' }}" href="{{ url('/partners') }}">Partners</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}" href="{{ url('/blog') }}">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('resources*') ? 'active' : '' }}" href="{{ url('/resources') }}">Resources</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('contact*') ? 'active' : '' }}" href="{{ url('/contact') }}">Contact</a>
-          </li>
-          <li class="nav-item ms-xl-2">
-            <button
-              id="themeToggle"
-              class="btn theme-toggle"
-              type="button"
-              aria-label="Toggle theme">
-              ☾
-            </button>
-          </li>
-        </ul>
-      </div>
+            <img
+                src="{{ asset('assets/images/gmet-logo.png') }}"
+                alt="GMET Logo"
+                class="brand-logo"
+            >
+
+            <span class="brand-text">
+                GME <b>TECHNOLOGIES</b>
+                <small>Geo Mapping Engineering & Technologies</small>
+            </span>
+
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+
+            <ul class="navbar-nav ms-auto align-items-xl-center">
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }}"
+                       href="{{ url('/') }}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('about*') ? 'active' : '' }}"
+                       href="{{ url('/about') }}">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('services*') ? 'active' : '' }}"
+                       href="{{ url('/services') }}">Services</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('team*') ? 'active' : '' }}"
+                       href="{{ url('/team') }}">Team</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('projects*') ? 'active' : '' }}"
+                       href="{{ url('/projects') }}">Projects</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('partners*') ? 'active' : '' }}"
+                       href="{{ url('/partners') }}">Partners</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}"
+                       href="{{ url('/blog') }}">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('resources*') ? 'active' : '' }}"
+                       href="{{ url('/resources') }}">Resources</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('contact*') ? 'active' : '' }}"
+                       href="{{ url('/contact') }}">Contact</a>
+                </li>
+
+                <li class="nav-item ms-xl-2 mt-2 mt-xl-0">
+                    <button
+                        id="themeToggle"
+                        class="btn theme-toggle"
+                        type="button">
+                        ☾
+                    </button>
+                </li>
+
+            </ul>
+
+        </div>
     </div>
-  </nav>
+</nav>
 
   @yield('content')
   <footer class="site-footer">
@@ -163,19 +184,19 @@
           </h6>
           <div class="ms-4">
             <a href="{{ url('/services') }}">
-             Web GIS
+              Web GIS
             </a>
-             <a href="{{ url('/services') }}">
-             GeoAI
+            <a href="{{ url('/services') }}">
+              GeoAI
             </a>
-             <a href="{{ url('/services') }}">
-             LULC
+            <a href="{{ url('/services') }}">
+              LULC
             </a>
-             <a href="{{ url('/services') }}">
-             Landslide Mapping
+            <a href="{{ url('/services') }}">
+              Landslide Mapping
             </a>
-             <a href="{{ url('/services') }}">
-             Town Planning
+            <a href="{{ url('/services') }}">
+              Town Planning
             </a>
           </div>
         </div>
@@ -186,18 +207,18 @@
           </h6>
           <div class="ms-4">
             <div class="ms-4">
-            <a href="{{ url('/partners') }}">
-             Government and Civil
-            </a>
-            <a href="{{ url('/partners') }}">
-              Agriculture
-            </a>
-            <a href="{{ url('/partners') }}">
-              Construction
-            </a>
-            <a href="{{ url('/partners') }}">
-              Enviromental
-            </a>
+              <a href="{{ url('/partners') }}">
+                Government and Civil
+              </a>
+              <a href="{{ url('/partners') }}">
+                Agriculture
+              </a>
+              <a href="{{ url('/partners') }}">
+                Construction
+              </a>
+              <a href="{{ url('/partners') }}">
+                Enviromental
+              </a>
             </div>
           </div>
         </div>
