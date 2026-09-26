@@ -2,33 +2,91 @@
 @section('title', 'Home')
 @section('content')
 <main>
-  <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="container position-relative">
-      <div class="row align-items-center min-vh-100 py-5">
-        <div class="col-lg-8 pt-5 reveal">
-          <span class="eyebrow light"
-            >Turning Data, Technology &amp; Ideas into Impact</span
-          >
-          <h1>Shaping Tomorrow Through <span>Geo Intelligence.</span></h1>
-          <p class="lead">
-            Geo Mapping Engineering &amp; Technologies (GMET) delivers premier
-            geospatial and engineering solutions for government, private,
-            and development sectors.
-          </p>
-          <div class="d-flex flex-wrap gap-3 mt-4">
-            <a href="{{ url('/services') }}" class="btn btn-gmet"
-              >Explore Services</a
-            ><a href="{{ url('/contact') }}" class="btn btn-outline-gmet"
-              >Get In Touch</a
-            >
+  <section class="hero-carousel">
+    <div id="gmetHeroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active hero-slide" style="background-image: url('{{ asset('assets/images/carousel1.jpeg') }}');">
+          <div class="hero-overlay"></div>
+          <div class="container position-relative h-100">
+            <div class="row align-items-center h-100">
+              <div class="col-lg-8 col-xl-7 hero-content mt-4">
+                <span class="eyebrow light">Turning Data, Technology &amp; Ideas into Impact</span>
+                <h1>Shaping Tomorrow Through <span>Geo Intelligence.</span></h1>
+                <p class="lead">Geo Mapping Engineering &amp; Technologies (GMET) delivers premier geospatial and engineering solutions for government, private, and development sectors.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                  <a href="{{ url('/services') }}" class="btn btn-gmet">Explore Services</a>
+                  <a href="{{ url('/contact') }}" class="btn btn-outline-gmet">Get In Touch</a>
+                </div>
+                <div class="hero-tags mt-4">
+                  <span>GIS</span>
+                  <span>Remote Sensing</span>
+                  <span>Surveying</span>
+                  <span>UAV</span>
+                  <span>Web GIS</span>
+                  <span>GeoAI</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="hero-tags mt-4">
-            <span>GIS</span><span>Remote Sensing</span><span>Surveying</span
-            ><span>UAV</span><span>Web GIS</span><span>GeoAI</span>
+        </div>
+        <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/images/hero-remote-sensing.jpg') }}');">
+          <div class="hero-overlay"></div>
+          <div class="container position-relative h-100">
+            <div class="row align-items-center h-100">
+              <div class="col-lg-8 col-xl-7 hero-content">
+                <span class="eyebrow light">Advanced Geospatial Technology</span>
+                <h1>See the World Through <span>Remote Sensing.</span></h1>
+                <p class="lead">Transforming satellite and aerial data into meaningful information for environmental monitoring, land-use analysis, planning, and decision-making.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                  <a href="{{ url('/services') }}" class="btn btn-gmet">Explore Services</a>
+                  <a href="{{ url('/projects') }}" class="btn btn-outline-gmet">View Projects</a>
+                </div>
+                <div class="hero-tags mt-4">
+                  <span>Satellite Data</span>
+                  <span>NDVI</span>
+                  <span>LULC</span>
+                  <span>Earth Observation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/images/hero-surveying.jpg') }}');">
+          <div class="hero-overlay"></div>
+          <div class="container position-relative h-100">
+            <div class="row align-items-center h-100">
+              <div class="col-lg-8 col-xl-7 hero-content">
+                <span class="eyebrow light">Precision • Innovation • Intelligence</span>
+                <h1>Engineering Better Solutions with <span>Spatial Intelligence.</span></h1>
+                <p class="lead">From surveying and UAV mapping to Web GIS and GeoAI, GMET integrates modern technology to solve complex spatial and engineering challenges.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                  <a href="{{ url('/services') }}" class="btn btn-gmet">Our Services</a>
+                  <a href="{{ url('/contact') }}" class="btn btn-outline-gmet">Contact Us</a>
+                </div>
+                <div class="hero-tags mt-4">
+                  <span>UAV Mapping</span>
+                  <span>Surveying</span>
+                  <span>Web GIS</span>
+                  <span>GeoAI</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </section>
 
@@ -50,9 +108,7 @@
             environmental monitoring, GMET transforms complex data into
             customized, cost-effective strategies.
           </p>
-          <a class="text-link" href="{{ url('/about') }}"
-            >Read our full profile →</a
-          >
+          <a class="text-link" href="{{ url('/about') }}">Read our full profile →</a>
         </div>
         <div class="col-lg-5 reveal">
           <div class="feature-panel">
@@ -60,12 +116,10 @@
               <span class="stat-number">2025</span><span>Founded</span>
             </div>
             <div>
-              <span class="stat-number">15+</span
-              ><span>Years of CEO's geospatial experience</span>
+              <span class="stat-number">15+</span><span>Years of CEO's geospatial experience</span>
             </div>
             <div>
-              <span class="stat-number">{{ count($services) > 0 ? count($services) : '15' }}</span
-              ><span>Services &amp; solution areas</span>
+              <span class="stat-number">{{ count($services) > 0 ? count($services) : '15' }}</span><span>Services &amp; solution areas</span>
             </div>
           </div>
         </div>
@@ -96,104 +150,102 @@
         @endforelse
       </div>
       <div class="text-center mt-5">
-        <a class="btn btn-gmet" href="{{ url('/services') }}"
-          >View All Services</a
-        >
+        <a class="btn btn-gmet" href="{{ url('/services') }}">View All Services</a>
       </div>
     </div>
   </section>
 
-<section class="why-choose-section">
+  <section class="why-choose-section">
     <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-4">
-                <div class="why-badge">
-                    <span></span>
-                    OUR EXCELLENCE
-                </div>
-                <h2 class="why-title">
-                    WHY CHOOSE
-                    <br>
-                    US
-                    <br>
-                    <strong>FOR</strong>
-                    <br>
-                    <strong>PROJECTS!</strong>
-                </h2>
-                <p class="why-description">
-                    We take pride in delivering top-quality spatial
-                    solutions that are tailored to meet the unique
-                    needs of our clients.
-                </p>
-                <a href="{{ url('/services') }}" class="why-button">
-                    VIEW ALL SERVICES
-                </a>
-            </div>
-
-            <div class="col-lg-8">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="why-card">
-                            <div class="why-icon">
-                                <i class="fa-solid fa-bullseye"></i>
-                            </div>
-                            <div class="why-card-content">
-                                <h3>Client Focused Approach</h3>
-                                <p>
-                                    Tailored services with a client-first
-                                    approach.
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="why-card">
-                            <div class="why-icon">
-                                <i class="fa-solid fa-hard-hat"></i>
-                            </div>
-                            <div class="why-card-content">
-                                <h3>Timely Deliveries</h3>
-                                <p>
-                                    On-schedule and quality deliveries for
-                                    all projects.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="why-card">
-                            <div class="why-icon">
-                                <i class="fa-solid fa-desktop"></i>
-                            </div>
-                            <div class="why-card-content">
-                                <h3>Modern Technique</h3>
-                                <p>
-                                    Innovative GIS solutions with modern
-                                    techniques.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="why-card">
-                            <div class="why-icon">
-                                <i class="fa-solid fa-users"></i>
-                            </div>
-                            <div class="why-card-content">
-                                <h3>Experienced Staff</h3>
-                                <p>
-                                    Highly professional team for exceptional
-                                    results.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-4">
+          <div class="why-badge">
+            <span></span>
+            OUR EXCELLENCE
+          </div>
+          <h2 class="why-title">
+            WHY CHOOSE
+            <br>
+            US
+            <br>
+            <strong>FOR</strong>
+            <br>
+            <strong>PROJECTS!</strong>
+          </h2>
+          <p class="why-description">
+            We take pride in delivering top-quality spatial
+            solutions that are tailored to meet the unique
+            needs of our clients.
+          </p>
+          <a href="{{ url('/services') }}" class="why-button">
+            VIEW ALL SERVICES
+          </a>
         </div>
+
+        <div class="col-lg-8">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="why-card">
+                <div class="why-icon">
+                  <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <div class="why-card-content">
+                  <h3>Client Focused Approach</h3>
+                  <p>
+                    Tailored services with a client-first
+                    approach.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="why-card">
+                <div class="why-icon">
+                  <i class="fa-solid fa-hard-hat"></i>
+                </div>
+                <div class="why-card-content">
+                  <h3>Timely Deliveries</h3>
+                  <p>
+                    On-schedule and quality deliveries for
+                    all projects.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="why-card">
+                <div class="why-icon">
+                  <i class="fa-solid fa-desktop"></i>
+                </div>
+                <div class="why-card-content">
+                  <h3>Modern Technique</h3>
+                  <p>
+                    Innovative GIS solutions with modern
+                    techniques.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="why-card">
+                <div class="why-icon">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="why-card-content">
+                  <h3>Experienced Staff</h3>
+                  <p>
+                    Highly professional team for exceptional
+                    results.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
   <section class="section">
     <div class="container">
@@ -202,8 +254,7 @@
           <div class="ceo-photo-wrap">
             <img
               src="{{ asset('assets/images/ceo-abida-parveen.png') }}"
-              alt="Mrs. Abida Parveen"
-            />
+              alt="Mrs. Abida Parveen" />
           </div>
           <h3 class="mt-4 mb-1">Mrs. Abida Parveen</h3>
           <p class="role">Chief Executive Officer</p>
@@ -225,9 +276,7 @@
           </div>
           <a
             class="text-link d-inline-block mt-4"
-            href="{{ url('/about#ceo') }}"
-            >Read the full CEO message →</a
-          >
+            href="{{ url('/about#ceo') }}">Read the full CEO message →</a>
         </div>
       </div>
     </div>
@@ -291,9 +340,7 @@
         @endforelse
       </div>
       <div class="text-center mt-5">
-        <a class="btn btn-gmet" href="{{ url('/projects') }}"
-          >View Project Details</a
-        >
+        <a class="btn btn-gmet" href="{{ url('/projects') }}">View Project Details</a>
       </div>
     </div>
   </section>
@@ -310,20 +357,17 @@
           <article class="team-card">
             <div class="team-img-wrap">
               @if($m->image && file_exists(public_path('assets/images/' . $m->image)))
-                <img
-                  src="{{ asset('assets/images/' . $m->image) }}"
-                  alt="{{ $m->fullname }}"
-                />
+              <img
+                src="{{ asset('assets/images/' . $m->image) }}"
+                alt="{{ $m->fullname }}" />
               @elseif($m->image && file_exists(public_path('uploads/team/' . $m->image)))
-                <img
-                  src="{{ asset('uploads/team/' . $m->image) }}"
-                  alt="{{ $m->fullname }}"
-                />
+              <img
+                src="{{ asset('uploads/team/' . $m->image) }}"
+                alt="{{ $m->fullname }}" />
               @else
-                <img
-                  src="{{ asset('assets/images/gmet-logo.jpeg') }}"
-                  alt="{{ $m->fullname }}"
-                />
+              <img
+                src="{{ asset('assets/images/gmet-logo.jpeg') }}"
+                alt="{{ $m->fullname }}" />
               @endif
             </div>
             <div class="team-meta">
@@ -338,9 +382,7 @@
         @endforelse
       </div>
       <div class="text-center mt-5">
-        <a class="btn btn-outline-gmet-dark" href="{{ url('/team') }}"
-          >Meet the Full Team</a
-        >
+        <a class="btn btn-outline-gmet-dark" href="{{ url('/team') }}">Meet the Full Team</a>
       </div>
     </div>
   </section>

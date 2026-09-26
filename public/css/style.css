@@ -295,6 +295,219 @@ a {
     font-size: 0.72rem;
     color: #e4f0df;
 }
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.hero-slide {
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(5, 35, 15, 0.88) 0%,
+        rgba(5, 35, 15, 0.7) 45%,
+        rgba(5, 35, 15, 0.3) 100%
+    );
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: #fff;
+}
+.hero-content h1 {
+    color: #fff;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 900px;
+}
+.hero-content h1 span {
+    color: var(--gmet-green);
+}
+.hero-content .lead {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    line-height: 1.7;
+    max-width: 760px;
+    margin-bottom: 0;
+}
+.hero-content .eyebrow {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.hero-content .btn {
+    padding: 12px 25px;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.hero-content .btn-gmet {
+    background: var(--gmet-green);
+    border: 1px solid var(--gmet-green);
+    color: #fff;
+}
+.hero-content .btn-gmet:hover {
+    background: #fff;
+    border-color: #fff;
+    color: var(--gmet-green);
+}
+.hero-content .btn-outline-gmet {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+.hero-content .btn-outline-gmet:hover {
+    background: #fff;
+    color: var(--gmet-green);
+}
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.hero-tags span {
+    display: inline-block;
+    padding: 7px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.hero-carousel .carousel-control-prev,
+.hero-carousel .carousel-control-next {
+    width: 7%;
+    z-index: 5;
+}
+.hero-carousel .carousel-control-prev-icon,
+.hero-carousel .carousel-control-next-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.35);
+    background-size: 50%;
+}
+.hero-carousel .carousel-indicators {
+    z-index: 5;
+    margin-bottom: 30px;
+}
+.hero-carousel .carousel-indicators button {
+    width: 35px;
+    height: 4px;
+    border: 0;
+    border-radius: 10px;
+    opacity: 0.6;
+}
+.hero-carousel .carousel-indicators button.active {
+    opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+    .hero-slide {
+        min-height: 90vh;
+    }
+    .hero-content {
+        padding-top: 120px;
+        padding-bottom: 100px;
+    }
+    .hero-content h1 {
+        max-width: 700px;
+    }
+    .hero-overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(5, 35, 15, 0.88),
+            rgba(5, 35, 15, 0.6)
+        );
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-slide {
+        min-height: 100vh;
+    }
+    .hero-content {
+        padding: 120px 15px 100px;
+    }
+    .hero-content h1 {
+        font-size: clamp(2.1rem, 10vw, 3rem);
+        line-height: 1.1;
+        margin-top: 15px;
+    }
+    .hero-content .lead {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    .hero-content .eyebrow {
+        font-size: 0.7rem;
+    }
+    .hero-content .btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+    .hero-tags {
+        gap: 6px;
+    }
+    .hero-tags span {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    .hero-carousel .carousel-control-prev,
+    .hero-carousel .carousel-control-next {
+        width: 10%;
+    }
+    .hero-carousel .carousel-control-prev-icon,
+    .hero-carousel .carousel-control-next-icon {
+        width: 32px;
+        height: 32px;
+    }
+    .hero-carousel .carousel-indicators {
+        margin-bottom: 18px;
+    }
+}
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 110px 20px 90px;
+    }
+    .hero-content h1 {
+        font-size: 2.15rem;
+    }
+    .hero-content .lead {
+        font-size: 0.95rem;
+    }
+    .hero-content .btn {
+        width: 100%;
+        text-align: center;
+    }
+    .hero-tags span {
+        font-size: 0.7rem;
+    }
+    .hero-overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(5, 35, 15, 0.9),
+            rgba(5, 35, 15, 0.72)
+        );
+    }
+}
 .section {
     padding: 6rem 0;
     background: #fff;
