@@ -55,7 +55,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('about*') ? 'active' : '' }}"
-              href="{{ url('/about') }}">About</a>
+              href="{{ url('/about') }}">About us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('services*') ? 'active' : '' }}"

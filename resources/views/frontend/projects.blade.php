@@ -28,7 +28,7 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Project</th>
+              <th>Project Title</th>
               <th>Date / Timeline</th>
             </tr>
           </thead>

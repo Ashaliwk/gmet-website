@@ -10,14 +10,14 @@
         <button type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c1.png') }}');">
+        <div class="carousel-item active hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c1.png') }}');4">
           <div class="hero-overlay"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
               <div class="col-lg-8 col-xl-7 hero-content mt-4">
                 <span class="eyebrow light">Turning Data, Technology &amp; Ideas into Impact</span>
-                <h1>Shaping Tomorrow Through <span>Geo Intelligence.</span></h1>
-                <p class="lead">Geo Mapping Engineering &amp; Technologies (GMET) delivers premier geospatial and engineering solutions for government, private, and development sectors.</p>
+                <h1>Shaping Tomorrow Through <span>Geo Intelligence</span></h1>
+                <p class="lead">Geo Mapping Engineering &amp; Technologies (GMET) delivers premier geospatial and engineering solutions for government, private, and development sectors</p>
                 <div class="d-flex flex-wrap gap-3 mt-4">
                   <a href="{{ url('/services') }}" class="btn btn-gmet">Explore Services</a>
                   <a href="{{ url('/contact') }}" class="btn btn-outline-gmet">Get In Touch</a>
@@ -40,8 +40,8 @@
             <div class="row align-items-center h-100">
               <div class="col-lg-8 col-xl-7 hero-content mt-4">
                 <span class="eyebrow light">Advanced Geospatial Technology</span>
-                <h1>See the World Through <span>Remote Sensing.</span></h1>
-                <p class="lead">Transforming satellite and aerial data into meaningful information for environmental monitoring, land-use analysis, planning, and decision-making.</p>
+                <h1>See the World Through <span>Remote Sensing</span></h1>
+                <p class="lead">Transforming satellite and aerial data into meaningful information for environmental monitoring, land-use analysis, planning, and decision-making</p>
                 <div class="d-flex flex-wrap gap-3 mt-4">
                   <a href="{{ url('/services') }}" class="btn btn-gmet">Explore Services</a>
                   <a href="{{ url('/projects') }}" class="btn btn-outline-gmet">View Projects</a>
@@ -62,8 +62,8 @@
             <div class="row align-items-center h-100">
               <div class="col-lg-8 col-xl-7 hero-content mt-4">
                 <span class="eyebrow light">Precision • Innovation • Intelligence</span>
-                <h1>Engineering Better Solutions with <span>Spatial Intelligence.</span></h1>
-                <p class="lead">From surveying and UAV mapping to Web GIS and GeoAI, GMET integrates modern technology to solve complex spatial and engineering challenges.</p>
+                <h1>Engineering Better Solutions with <span>Spatial Intelligence</span></h1>
+                <p class="lead">From surveying and UAV mapping to Web GIS and GeoAI, GMET integrates modern technology to solve complex spatial and engineering challenges</p>
                 <div class="d-flex flex-wrap gap-3 mt-4">
                   <a href="{{ url('/services') }}" class="btn btn-gmet">Our Services</a>
                   <a href="{{ url('/contact') }}" class="btn btn-outline-gmet">Contact Us</a>
@@ -95,18 +95,18 @@
       <div class="row g-5 align-items-center">
         <div class="col-lg-7 reveal">
           <span class="eyebrow">About GMET</span>
-          <h2>Geospatial intelligence for smarter decisions.</h2>
+          <h2>Geospatial intelligence for smarter decisions</h2>
           <p class="lead">
             GMET empowers government, private, and development sectors with
             actionable spatial intelligence across GIS, remote sensing,
             surveying, UAV mapping, geomatics, engineering, Web GIS, and
-            AI-driven solutions.
+            AI-driven solutions
           </p>
           <p>
             By integrating precision engineering, digital mapping, spatial
             analysis, infrastructure planning, asset management, and
             environmental monitoring, GMET transforms complex data into
-            customized, cost-effective strategies.
+            customized, cost-effective strategies
           </p>
           <a class="text-link" href="{{ url('/about') }}">Read our full profile →</a>
         </div>
@@ -133,7 +133,7 @@
         <span class="eyebrow">What We Do</span>
         <h2>Integrated services &amp; solutions</h2>
         <p>
-          Explore the capabilities presented in the GMET company profile.
+          Explore the capabilities presented in the GMET company profile
         </p>
       </div>
       <div class="row g-4">
@@ -146,7 +146,7 @@
           </div>
         </div>
         @empty
-        <div class="col-12 text-center text-muted">Services being updated.</div>
+        <div class="col-12 text-center text-muted">Services being updated</div>
         @endforelse
       </div>
       <div class="text-center mt-5">
@@ -175,7 +175,7 @@
           <p class="why-description">
             We take pride in delivering top-quality spatial
             solutions that are tailored to meet the unique
-            needs of our clients.
+            needs of our clients
           </p>
           <a href="{{ url('/services') }}" class="why-button">
             VIEW ALL SERVICES
@@ -193,7 +193,7 @@
                   <h3>Client Focused Approach</h3>
                   <p>
                     Tailored services with a client-first
-                    approach.
+                    approach
                   </p>
                 </div>
 
@@ -208,7 +208,7 @@
                   <h3>Timely Deliveries</h3>
                   <p>
                     On-schedule and quality deliveries for
-                    all projects.
+                    all projects
                   </p>
                 </div>
               </div>
@@ -222,7 +222,7 @@
                   <h3>Modern Technique</h3>
                   <p>
                     Innovative GIS solutions with modern
-                    techniques.
+                    techniques
                   </p>
                 </div>
               </div>
@@ -236,7 +236,7 @@
                   <h3>Experienced Staff</h3>
                   <p>
                     Highly professional team for exceptional
-                    results.
+                    results
                   </p>
                 </div>
               </div>
@@ -261,7 +261,7 @@
         </div>
         <div class="col-lg-8 reveal">
           <span class="eyebrow">CEO Message</span>
-          <h2>Leadership with a geospatial vision.</h2>
+          <h2>Leadership with a geospatial vision</h2>
           <div class="quote-box">
             <p>
               With over 15 years in geospatial technology, I've led
@@ -311,36 +311,6 @@
             </p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-tint">
-    <div class="container">
-      <div class="section-heading reveal">
-        <span class="eyebrow">Featured Projects</span>
-        <h2>Turning expertise into practical solutions.</h2>
-        <p>
-          GMET's profile records projects involving mineral identification,
-          stereo satellite acquisition, and digital surveying.
-        </p>
-      </div>
-      <div class="row g-4">
-        @forelse($featuredProjects as $fProj)
-        <div class="col-md-6 col-xl-4 reveal">
-          <div class="project-card">
-            <span>0{{ $loop->iteration }}</span>
-            <h3>{{ $fProj->title }}</h3>
-            <small>{{ $fProj->client }}</small>
-            <p>{{ $fProj->key_terms ?: Str::limit($fProj->details, 90) }}</p>
-          </div>
-        </div>
-        @empty
-        <div class="col-12 text-center text-muted">Projects will be updated soon.</div>
-        @endforelse
-      </div>
-      <div class="text-center mt-5">
-        <a class="btn btn-gmet" href="{{ url('/projects') }}">View Project Details</a>
       </div>
     </div>
   </section>
