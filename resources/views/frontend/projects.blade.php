@@ -28,22 +28,16 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Client</th>
-              <th>Project / Description</th>
-              <th>Document</th>
+              <th>Project</th>
               <th>Date / Timeline</th>
-              <th>Key Terms</th>
             </tr>
           </thead>
           <tbody>
             @forelse($projects as $project)
             <tr>
               <td><strong>{{ $loop->iteration }}</strong></td>
-              <td>{{ $project->client }}</td>
               <td>{{ $project->title }}</td>
-              <td>{{ $project->document ?: '—' }}</td>
               <td>{{ $project->timeline ?: '—' }}</td>
-              <td>{{ $project->key_terms ?: '—' }}</td>
             </tr>
             @empty
             <tr>

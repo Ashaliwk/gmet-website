@@ -12,47 +12,35 @@
     @endif
 
     <div class="card shadow mb-4">
-        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <div class="card-header py-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
             <h6 class="m-0 font-weight-bold text-success">
                 <a class="text-success" href="{{url('/admin')}}">Dashboard</a> | GMET Projects List ({{ count($projects) }})
             </h6>
-            <a href="{{url('/admin/project-add')}}" class="btn btn-sm btn-success shadow-sm">
+            <a href="{{url('/admin/project-add')}}" class="btn btn-sm btn-success shadow-sm mt-2 mt-sm-0">
                 <i class="fas fa-plus fa-sm text-white-50 mr-1"></i> Add New Project
             </a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-hover responsive-stack-table" id="dataTable" width="100%" cellspacing="0">
                     <thead class="thead-light">
                         <tr>
                             <th width="35px">#</th>
                             <th>Client</th>
-                            <th>Project / Description</th>
-                            <th>Document</th>
+                            <th>Project Title</th>
                             <th>Timeline</th>
-                            <th>Key Terms</th>
-                            <th width="70px">Featured</th>
-                            <th width="70px">Status</th>
+                            <th width="90px">Status</th>
                             <th width="120px">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($projects as $proj)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td class="font-weight-bold text-dark">{{ $proj->client }}</td>
-                            <td>{{ $proj->title }}</td>
-                            <td><span class="badge badge-secondary">{{ $proj->document ?: 'N/A' }}</span></td>
-                            <td><small class="text-muted">{{ $proj->timeline ?: 'N/A' }}</small></td>
-                            <td><small>{{ Str::limit($proj->key_terms, 80) }}</small></td>
-                            <td class="text-center">
-                                @if($proj->is_featured)
-                                    <span class="badge badge-warning text-dark">Highlight</span>
-                                @else
-                                    <span class="badge badge-light">Standard</span>
-                                @endif
-                            </td>
-                            <td class="text-center">
+                            <td data-label="#">{{ $loop->iteration }}</td>
+                            <td data-label="Client" class="font-weight-bold text-dark">{{ $proj->client }}</td>
+                            <td data-label="Title">{{ $proj->title }}</td>
+                            <td data-label="Timeline"><small class="text-muted">{{ $proj->timeline ?: 'N/A' }}</small></td>
+                            <td data-label="Status" class="text-center">
                                 <form method="POST" action="{{ url('/admin/project-status/'.$proj->id) }}" class="d-inline">
                                     @csrf
                                     @method('PATCH')
@@ -63,7 +51,7 @@
                                     @endif
                                 </form>
                             </td>
-                            <td>
+                            <td data-label="Actions">
                                 <a href="{{ url('/admin/project-edit/'.$proj->id) }}" class="btn btn-success btn-circle btn-sm mr-1" title="Edit">
                                     <i class="fas fa-edit"></i>
                                 </a>
@@ -83,4 +71,56 @@
         </div>
     </div>
 </div>
+
+@push('styles')
+<style>
+    /* Responsive stacked table for small screens */
+    @media (max-width: 767.98px) {
+        .responsive-stack-table thead {
+            display: none;
+        }
+        .responsive-stack-table,
+        .responsive-stack-table tbody,
+        .responsive-stack-table tr,
+        .responsive-stack-table td {
+            display: block;
+            width: 100%;
+        }
+        .responsive-stack-table tr {
+            margin-bottom: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .responsive-stack-table td {
+            text-align: right;
+            padding: 0.6rem 0.9rem;
+            border: none;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+        }
+        .responsive-stack-table td:last-child {
+            border-bottom: none;
+        }
+        .responsive-stack-table td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: 600;
+            color: #6c757d;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.03em;
+        }
+        .responsive-stack-table td[data-label="Actions"],
+        .responsive-stack-table td[data-label="Status"],
+        .responsive-stack-table td[data-label="Featured"] {
+            text-align: right;
+        }
+    }
+
+    .badge-status {
+        min-width: 70px;
+    }
+</style>
+@endpush
 @endsection

@@ -10,7 +10,7 @@
         <button type="button" data-bs-target="#gmetHeroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c4.png') }}');">
+        <div class="carousel-item active hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c1.png') }}');">
           <div class="hero-overlay"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
@@ -34,7 +34,7 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c3.png') }}');">
+        <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c2.png') }}');">
           <div class="hero-overlay"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c2.png') }}');">
+        <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c3.png') }}');">
           <div class="hero-overlay"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">

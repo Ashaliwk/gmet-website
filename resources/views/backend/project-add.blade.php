@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label class="font-weight-bold">Project Title / Scope <span class="text-danger">*</span></label>
+                        <label class="font-weight-bold">Project Title <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" name="title" value="{{ old('title') }}" required placeholder="e.g. Satellite Imagery Stereo Acquisition">
                         @error('title')<span class="text-danger small">{{ $message }}</span>@enderror
                     </div>
@@ -28,40 +28,8 @@
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label class="font-weight-bold">Document Reference</label>
-                        <input type="text" class="form-control" name="document" value="{{ old('document') }}" placeholder="e.g. PO GM-LOC-PO-743, Certificate">
-                    </div>
-
-                    <div class="col-md-6 mb-3">
                         <label class="font-weight-bold">Date / Timeline</label>
                         <input type="text" class="form-control" name="timeline" value="{{ old('timeline') }}" placeholder="e.g. 16-01-2026; 60–75 days after PO issuance">
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label class="font-weight-bold">Key Terms & Deliverables</label>
-                    <textarea class="form-control" name="key_terms" rows="3" placeholder="e.g. 30% advance payment; orthorectification; DEM/DSM/DTM at 5m...">{{ old('key_terms') }}</textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label class="font-weight-bold">Project Details / Scope Description</label>
-                    <textarea class="form-control" name="details" rows="4" placeholder="Detailed project summary...">{{ old('details') }}</textarea>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <label class="font-weight-bold">Category</label>
-                        <input type="text" class="form-control" name="category" value="{{ old('category') }}" placeholder="e.g. Satellite Solutions, Mineral Exploration">
-                    </div>
-
-                    <div class="col-md-4 mb-3">
-                        <label class="font-weight-bold">Technology / Tools Used</label>
-                        <input type="text" class="form-control" name="technology" value="{{ old('technology') }}" placeholder="e.g. GIS, RS, Drone, Web GIS">
-                    </div>
-
-                    <div class="col-md-4 mb-3">
-                        <label class="font-weight-bold">Display Order</label>
-                        <input type="number" class="form-control" name="order" value="{{ old('order', 0) }}">
                     </div>
                 </div>
 

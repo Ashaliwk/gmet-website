@@ -8,6 +8,7 @@ use App\Models\backend\Projects;
 
 class AdminProjectsController extends Controller
 {
+    // Show all projects
     public function index()
     {
         $projects = Projects::orderBy('order', 'asc')->get();
@@ -15,47 +16,41 @@ class AdminProjectsController extends Controller
         return view('backend.projects', compact('projects'));
     }
 
+    // Show Add Project form
     public function addProject()
     {
         return view('backend.project-add');
     }
 
+    // Save new project
     public function submitProjectRecord(Request $request)
     {
         $request->validate([
-            'client'     => 'required|string|max:255',
-            'title'      => 'required|string|max:255',
-            'document'   => 'nullable|string|max:255',
-            'timeline'   => 'nullable|string|max:255',
-            'key_terms'  => 'nullable|string',
-            'details'    => 'nullable|string',
-            'category'   => 'nullable|string|max:100',
-            'technology' => 'nullable|string|max:255',
-            'link'       => 'nullable|string|max:255',
-            'order'      => 'nullable|integer',
+            'client'   => 'required|string|max:255',
+            'title'    => 'required|string|max:255',
+            'timeline' => 'nullable|string|max:255',
         ]);
 
         $project = new Projects();
 
-        $project->client = $request->client;
-        $project->title = $request->title;
-        $project->document = $request->document;
-        $project->timeline = $request->timeline;
-        $project->key_terms = $request->key_terms;
-        $project->details = $request->details ?: $request->title;
-        $project->category = $request->category;
-        $project->technology = $request->technology;
-        $project->link = $request->link ?: '#';
-        $project->is_featured = $request->has('is_featured') ? 1 : 0;
-        $project->status = $request->has('status') ? 1 : 0;
-        $project->order = $request->order ?? 0;
+$project->client = $request->client;
+$project->title = $request->title;
+$project->timeline = $request->timeline;
+$project->category = 'General';
+$project->technology = 'N/A'; // <-- fixes this error
+$project->details = $request->title;
+$project->link = '#';
+$project->is_featured = $request->has('is_featured') ? 1 : 0;
+$project->status = $request->has('status') ? 1 : 0;
+$project->order = 0;
 
-        $project->save();
+$project->save();
 
         return redirect('/admin/projects')
             ->with('success', 'Project Record Added Successfully');
     }
 
+    // Show Edit Project form
     public function editProject($id)
     {
         $project = Projects::findOrFail($id);
@@ -63,35 +58,23 @@ class AdminProjectsController extends Controller
         return view('backend.project-edit', compact('project'));
     }
 
+    // Update existing project
     public function updateProject(Request $request, $id)
     {
         $request->validate([
-            'client'     => 'required|string|max:255',
-            'title'      => 'required|string|max:255',
-            'document'   => 'nullable|string|max:255',
-            'timeline'   => 'nullable|string|max:255',
-            'key_terms'  => 'nullable|string',
-            'details'    => 'nullable|string',
-            'category'   => 'nullable|string|max:100',
-            'technology' => 'nullable|string|max:255',
-            'link'       => 'nullable|string|max:255',
-            'order'      => 'nullable|integer',
+            'client'   => 'required|string|max:255',
+            'title'    => 'required|string|max:255',
+            'timeline' => 'nullable|string|max:255',
         ]);
 
         $project = Projects::findOrFail($id);
 
         $project->client = $request->client;
         $project->title = $request->title;
-        $project->document = $request->document;
         $project->timeline = $request->timeline;
-        $project->key_terms = $request->key_terms;
-        $project->details = $request->details ?: $request->title;
-        $project->category = $request->category;
-        $project->technology = $request->technology;
-        $project->link = $request->link ?: '#';
-        $project->is_featured = $request->has('is_featured') ? 1 : 0;
-        $project->status = $request->has('status') ? 1 : 0;
-        $project->order = $request->order ?? 0;
+
+        // Keep existing values for fields not used in the form
+        $project->details = $request->title;
 
         $project->save();
 
@@ -99,15 +82,18 @@ class AdminProjectsController extends Controller
             ->with('success', 'Project Record Updated Successfully');
     }
 
+    // Delete project
     public function deleteProject($id)
     {
         $project = Projects::findOrFail($id);
+
         $project->delete();
 
         return redirect('/admin/projects')
             ->with('success', 'Project Record Deleted Successfully');
     }
 
+    // Toggle project status
     public function toggleStatus($id)
     {
         $project = Projects::findOrFail($id);

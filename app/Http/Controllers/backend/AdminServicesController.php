@@ -30,7 +30,6 @@ class AdminServicesController extends Controller
             'order'       => 'nullable|integer',
         ]);
 
-        // Convert uploaded image to Base64
         $imageData = null;
 
         if ($request->hasFile('image')) {
