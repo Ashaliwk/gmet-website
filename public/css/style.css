@@ -420,6 +420,10 @@ a {
     opacity: 1;
 }
 
+.br button{
+border-radius: 10px;
+}
+
 @media (max-width: 991.98px) {
     .hero-slide {
         min-height: 90vh;
