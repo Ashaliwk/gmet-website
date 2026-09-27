@@ -420,8 +420,19 @@ a {
     opacity: 1;
 }
 
-.br button{
-border-radius: 10px;
+#gmetHeroCarousel .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    margin: 0 4px;
+    padding: 0;
+    opacity: 0.6;
+}
+
+#gmetHeroCarousel .carousel-indicators button.active {
+    opacity: 1;
+    transform: scale(0.9);
 }
 
 @media (max-width: 991.98px) {
