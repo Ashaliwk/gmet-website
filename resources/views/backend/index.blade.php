@@ -9,8 +9,6 @@
             <i class="fas fa-external-link-alt fa-sm text-white-50 mr-1"></i> Visit Website
         </a>
     </div>
-
-    <!-- Stats Cards Row -->
     <div class="row">
         <!-- Services Card -->
         <div class="col-xl-3 col-md-6 mb-4">
@@ -60,25 +58,6 @@
                                 Completed Projects
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $TotalProjects ?? 0 }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-folder-open fa-2x text-success"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-           <!-- Blogs Card -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                               Our Blogs
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $TotalBlogs ?? 0 }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-folder-open fa-2x text-success"></i>

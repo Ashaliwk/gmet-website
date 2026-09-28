@@ -22,10 +22,11 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover responsive-stack-table" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-hover responsive-stack-table align-middle" id="dataTable" width="100%" cellspacing="0">
                     <thead class="thead-light">
                         <tr>
                             <th width="35px">#</th>
+                            <th width="75px">Image</th>
                             <th>Client</th>
                             <th>Project Title</th>
                             <th>Timeline</th>
@@ -37,8 +38,22 @@
                         @foreach ($projects as $proj)
                         <tr>
                             <td data-label="#">{{ $loop->iteration }}</td>
+                            <td data-label="Image" class="text-center">
+                                @if($proj->image_url)
+                                    <img src="{{ $proj->image_url }}" alt="{{ $proj->title }}" class="img-thumbnail" style="width: 55px; height: 55px; object-fit: cover; border-radius: 6px;">
+                                @else
+                                    <div class="d-inline-flex align-items-center justify-content-center bg-light border rounded text-muted" style="width: 55px; height: 55px; font-size: 1.2rem;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                @endif
+                            </td>
                             <td data-label="Client" class="font-weight-bold text-dark">{{ $proj->client }}</td>
-                            <td data-label="Title">{{ $proj->title }}</td>
+                            <td data-label="Title">
+                                <div><strong>{{ $proj->title }}</strong></div>
+                                @if($proj->details && $proj->details !== $proj->title)
+                                    <small class="text-muted">{{ Str::limit($proj->details, 80) }}</small>
+                                @endif
+                            </td>
                             <td data-label="Timeline"><small class="text-muted">{{ $proj->timeline ?: 'N/A' }}</small></td>
                             <td data-label="Status" class="text-center">
                                 <form method="POST" action="{{ url('/admin/project-status/'.$proj->id) }}" class="d-inline">
@@ -113,7 +128,8 @@
         }
         .responsive-stack-table td[data-label="Actions"],
         .responsive-stack-table td[data-label="Status"],
-        .responsive-stack-table td[data-label="Featured"] {
+        .responsive-stack-table td[data-label="Featured"],
+        .responsive-stack-table td[data-label="Image"] {
             text-align: right;
         }
     }

@@ -26,25 +26,37 @@ class AdminProjectsController extends Controller
     public function submitProjectRecord(Request $request)
     {
         $request->validate([
-            'client'   => 'required|string|max:255',
-            'title'    => 'required|string|max:255',
-            'timeline' => 'nullable|string|max:255',
+            'client'      => 'required|string|max:255',
+            'title'       => 'required|string|max:255',
+            'timeline'    => 'nullable|string|max:255',
+            'details'     => 'nullable|string',
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'order'       => 'nullable|integer',
         ]);
 
         $project = new Projects();
 
-$project->client = $request->client;
-$project->title = $request->title;
-$project->timeline = $request->timeline;
-$project->category = 'General';
-$project->technology = 'N/A'; // <-- fixes this error
-$project->details = $request->title;
-$project->link = '#';
-$project->is_featured = $request->has('is_featured') ? 1 : 0;
-$project->status = $request->has('status') ? 1 : 0;
-$project->order = 0;
+        $project->client      = $request->client;
+        $project->title       = $request->title;
+        $project->timeline    = $request->timeline;
+        $project->document    = null;
+        $project->details     = $request->details ?: $request->title;
+        $project->key_terms   = null;
+        $project->category    = 'General';
+        $project->technology  = 'N/A';
+        $project->link        = '#';
+        $project->order       = $request->filled('order') ? (int)$request->order : 0;
+        $project->is_featured = $request->has('is_featured') ? 1 : 0;
+        $project->status      = $request->has('status') ? 1 : 0;
 
-$project->save();
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '', $image->getClientOriginalName());
+            $image->move(public_path('uploads/projects'), $name);
+            $project->image = $name;
+        }
+
+        $project->save();
 
         return redirect('/admin/projects')
             ->with('success', 'Project Record Added Successfully');
@@ -62,19 +74,35 @@ $project->save();
     public function updateProject(Request $request, $id)
     {
         $request->validate([
-            'client'   => 'required|string|max:255',
-            'title'    => 'required|string|max:255',
-            'timeline' => 'nullable|string|max:255',
+            'client'      => 'required|string|max:255',
+            'title'       => 'required|string|max:255',
+            'timeline'    => 'nullable|string|max:255',
+            'details'     => 'nullable|string',
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'order'       => 'nullable|integer',
         ]);
 
         $project = Projects::findOrFail($id);
 
-        $project->client = $request->client;
-        $project->title = $request->title;
-        $project->timeline = $request->timeline;
+        $project->client      = $request->client;
+        $project->title       = $request->title;
+        $project->timeline    = $request->timeline;
+        $project->details     = $request->details ?: $request->title;
+        $project->order       = $request->filled('order') ? (int)$request->order : ($project->order ?: 0);
+        $project->is_featured = $request->has('is_featured') ? 1 : 0;
+        $project->status      = $request->has('status') ? 1 : 0;
 
-        // Keep existing values for fields not used in the form
-        $project->details = $request->title;
+        if ($request->hasFile('image')) {
+            // Delete old uploaded image if exists
+            if ($project->image && file_exists(public_path('uploads/projects/' . $project->image))) {
+                @unlink(public_path('uploads/projects/' . $project->image));
+            }
+
+            $image = $request->file('image');
+            $name = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '', $image->getClientOriginalName());
+            $image->move(public_path('uploads/projects'), $name);
+            $project->image = $name;
+        }
 
         $project->save();
 
@@ -86,6 +114,10 @@ $project->save();
     public function deleteProject($id)
     {
         $project = Projects::findOrFail($id);
+
+        if ($project->image && file_exists(public_path('uploads/projects/' . $project->image))) {
+            @unlink(public_path('uploads/projects/' . $project->image));
+        }
 
         $project->delete();
 
