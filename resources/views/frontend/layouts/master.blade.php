@@ -32,7 +32,7 @@
           src="{{ asset('assets/images/gmet-logo.png') }}"
           alt="GMET Logo"
           class="brand-logo">
-        <span class="brand-text">
+        <span class="brand-text fs-4">
           GME <b>TECHNOLOGIES</b>
           <small>Geo Mapping Engineering & Technologies</small>
         </span>
@@ -127,7 +127,7 @@
               <span class="contact-icon">
                 <i class="fa-solid fa-phone"></i>
               </span>
-              <span>+92 3145485076</span>
+              <span>+92 344 5828712</span>
             </a>
             <a href="tel:+92516126643">
               <span class="contact-icon">
@@ -146,9 +146,9 @@
             </div>
           </div>
           <div class="footer-socials">
-            <a href="https://www.linkedin.com/feed/" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
+            <!--<a href="https://www.linkedin.com/feed/" aria-label="LinkedIn">-->
+            <!--  <i class="fa-brands fa-linkedin-in"></i>-->
+            <!--</a>-->
             <a href="https://www.facebook.com/profile.php?id=61593893199538"
               aria-label="Facebook">
               <i class="fa-brands fa-facebook-f"></i>

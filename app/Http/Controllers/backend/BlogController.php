@@ -10,17 +10,31 @@ use Illuminate\Support\Facades\Storage;
 class BlogController extends Controller
 {
     /** Show list of blogs in admin panel */
-    public function index()
-    {
-        $blogs = Blog::orderBy('created_at', 'desc')->paginate(10);
-        return view('backend.blog_index', compact('blogs'));
-    }
+
 
     /** Show form to create a new blog */
     public function create()
     {
         return view('backend.blog_create');
     }
+
+    public function index()
+{
+    // ...your existing counts
+    $TotalBlogs = Blog::count();
+
+    return view('backend.dashboard', compact(
+        'TotalServices',
+        'TotalTeam',
+        'TotalProjects',
+        'TotalBlogs',      // <-- add this
+        'TotalContacts',
+        'TotalAdmins',
+        'recentInquiries',
+        'recentProjects'
+    ));
+}
+
 
     /** Store a new blog */
     public function store(Request $request)

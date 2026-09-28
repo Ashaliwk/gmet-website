@@ -33,7 +33,7 @@
             </div>
             <div>
               <span>Mobile</span
-              ><a href="tel:+923145485076">+92 3145485076</a>
+              ><a href="tel:+92 344 5828712">+92 344 5828712</a>
             </div>
             <div>
               <span>Office</span
