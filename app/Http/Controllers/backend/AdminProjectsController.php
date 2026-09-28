@@ -51,9 +51,8 @@ class AdminProjectsController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $name = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '', $image->getClientOriginalName());
-            $image->move(public_path('uploads/projects'), $name);
-            $project->image = $name;
+            $project->image = 'data:' . $image->getMimeType() . ';base64,' .
+                base64_encode(file_get_contents($image->getRealPath()));
         }
 
         $project->save();
@@ -93,15 +92,9 @@ class AdminProjectsController extends Controller
         $project->status      = $request->has('status') ? 1 : 0;
 
         if ($request->hasFile('image')) {
-            // Delete old uploaded image if exists
-            if ($project->image && file_exists(public_path('uploads/projects/' . $project->image))) {
-                @unlink(public_path('uploads/projects/' . $project->image));
-            }
-
             $image = $request->file('image');
-            $name = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '', $image->getClientOriginalName());
-            $image->move(public_path('uploads/projects'), $name);
-            $project->image = $name;
+            $project->image = 'data:' . $image->getMimeType() . ';base64,' .
+                base64_encode(file_get_contents($image->getRealPath()));
         }
 
         $project->save();

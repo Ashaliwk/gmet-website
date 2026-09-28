@@ -183,6 +183,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const imgWrap = document.getElementById('projectModalImageWrapper');
         const imgEl = document.getElementById('projectModalImage');
         if (image && image.trim() !== '') {
+            imgEl.onerror = function() {
+                imgWrap.style.display = 'none';
+            };
+            imgEl.onload = function() {
+                imgWrap.style.display = 'block';
+            };
             imgEl.src = image;
             imgWrap.style.display = 'block';
         } else {

@@ -56,7 +56,7 @@
                                 <img src="{{ $project->image_url }}" alt="{{ $project->title }}" class="img-thumbnail" style="max-height: 90px; max-width: 140px; object-fit: cover;">
                                 <div>
                                     <span class="badge badge-success mb-1">Current Image Active</span>
-                                    <br><small class="text-muted text-break">{{ $project->image }}</small>
+                                    <br><small class="text-muted text-break">{{ str_starts_with($project->image, 'data:') ? 'Uploaded Image File' : $project->image }}</small>
                                 </div>
                             </div>
                         @endif
