@@ -24,25 +24,22 @@
           <article class="team-card">
             <div class="team-img-wrap">
               @if($member->image && file_exists(public_path('assets/images/' . $member->image)))
-                <img
-                  src="{{ asset('assets/images/' . $member->image) }}"
-                  alt="{{ $member->fullname }}"
-                />
+              <img
+                src="{{ asset('assets/images/' . $member->image) }}"
+                alt="{{ $member->fullname }}" />
               @elseif($member->image && file_exists(public_path('uploads/team/' . $member->image)))
-                <img
-                  src="{{ asset('uploads/team/' . $member->image) }}"
-                  alt="{{ $member->fullname }}"
-                />
+              <img
+                src="{{ asset('uploads/team/' . $member->image) }}"
+                alt="{{ $member->fullname }}" />
               @else
-                <img
-                  src="{{ asset('assets/images/gmet-logo.jpeg') }}"
-                  alt="{{ $member->fullname }}"
-                />
+              <img
+                src="{{ asset('assets/images/gmet-logo.jpeg') }}"
+                alt="{{ $member->fullname }}" />
               @endif
             </div>
             <div class="team-meta">
-              <span>{{ $member->designation }}</span>
               <h3>{{ $member->fullname }}</h3>
+              <span>{{ $member->designation }}</span>
               <p>{{ $member->intro }}</p>
             </div>
           </article>

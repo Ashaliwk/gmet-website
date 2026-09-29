@@ -28,7 +28,7 @@
                 class="img-fluid">
             </div>
             <div class="body">
-              <h5 class="service-title text-center">{{ $service->title }}</h5>
+              <h5 class="service-title text-center mt-4">{{ $service->title }}</h5>
               <p>{{ $service->description }}</p>
             </div>
           </article>

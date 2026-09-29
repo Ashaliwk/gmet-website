@@ -26,7 +26,7 @@
 
 <body>
   <nav class="navbar navbar-expand-xl fixed-top site-nav">
-    <div class="container-fluid px-3 px-xl-5">
+    <div class="container-fluid px-3 px-xl-1">
       <a class="navbar-brand" href="{{ url('/') }}">
         <img
           src="{{ asset('assets/images/gmet-logo.png') }}"
@@ -73,19 +73,23 @@
             <a class="nav-link {{ Request::is('partners*') ? 'active' : '' }}"
               href="{{ url('/partners') }}">Partners</a>
           </li>
-          <li class="nav-item">
+             <li class="nav-item">
             <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}"
-              href="{{ url('/blog') }}">Blog</a>
+              href="{{ url('/blog') }}">Applications</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('resources*') ? 'active' : '' }}"
               href="{{ url('/resources') }}">Resources</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}"
+              href="{{ url('/blog') }}">Blog</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link {{ Request::is('contact*') ? 'active' : '' }}"
               href="{{ url('/contact') }}">Contact</a>
           </li>
-          <li class="nav-item ms-xl-2 mt-2 mt-xl-0">
+          <li class="nav-item ms-xl-1 mt-2 mt-xl-0">
             <button
               id="themeToggle"
               class="btn theme-toggle"
@@ -237,7 +241,5 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{ asset('js/main.js') }}"></script>
-  @stack('scripts')
 </body>
-
 </html>
