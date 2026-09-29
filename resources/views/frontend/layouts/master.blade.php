@@ -31,7 +31,7 @@
         <img
           src="{{ asset('assets/images/gmet-logo.png') }}"
           alt="GMET Logo"
-          class="brand-logo">
+          class="brand-logo ms-xl-4">
         <span class="brand-text fs-4">
           GME <b>TECHNOLOGIES</b>
           <small>Geo Mapping Engineering & Technologies</small>
@@ -69,21 +69,21 @@
             <a class="nav-link {{ Request::is('projects*') ? 'active' : '' }}"
               href="{{ url('/projects') }}">Projects</a>
           </li>
-          <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link {{ Request::is('partners*') ? 'active' : '' }}"
               href="{{ url('/partners') }}">Partners</a>
           </li>
-             <li class="nav-item">
-            <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}"
-              href="{{ url('/blog') }}">Applications</a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('resources*') ? 'active' : '' }}"
-              href="{{ url('/resources') }}">Resources</a>
+            <a class="nav-link {{ Request::is('applications*') ? 'active' : '' }}"
+              href="{{ url('/applications') }}">Applications</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}"
               href="{{ url('/blog') }}">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('resources*') ? 'active' : '' }}"
+              href="{{ url('/resources') }}">Resources</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('contact*') ? 'active' : '' }}"
@@ -93,7 +93,8 @@
             <button
               id="themeToggle"
               class="btn theme-toggle"
-              type="button">
+              type="button"
+              aria-label="Toggle light and dark theme">
               ☾
             </button>
           </li>
@@ -189,20 +190,18 @@
             Applications
           </h6>
           <div class="ms-4">
-            <div class="ms-4">
-              <a href="{{ url('/partners') }}">
-                Government and Civil
-              </a>
-              <a href="{{ url('/partners') }}">
-                Agriculture
-              </a>
-              <a href="{{ url('/partners') }}">
-                Construction
-              </a>
-              <a href="{{ url('/partners') }}">
-                Enviromental
-              </a>
-            </div>
+            <a href="{{ url('/applications') }}">
+              All Applications
+            </a>
+            <a href="{{ url('/applications') }}">
+              Government & Civil
+            </a>
+            <a href="{{ url('/applications') }}">
+              Agriculture GIS
+            </a>
+            <a href="{{ url('/applications') }}">
+              Environmental Mapping
+            </a>
           </div>
         </div>
         <div class="col-sm-4 col-lg-2 footer-column">

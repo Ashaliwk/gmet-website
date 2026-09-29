@@ -9,6 +9,8 @@ use App\Models\backend\Team;
 use App\Models\backend\Projects;
 use App\Models\backend\Partners;
 use App\Models\backend\Contact;
+use App\Models\backend\Application;
+use App\Models\backend\ApplicationRegistration;
 
 class FrontendController extends Controller
 {
@@ -44,6 +46,80 @@ class FrontendController extends Controller
         $projects = Projects::where('status', 1)->orderBy('order', 'asc')->get();
         $featuredProjects = Projects::where('status', 1)->where('is_featured', 1)->orderBy('order', 'asc')->get();
         return view('frontend.projects', compact('projects', 'featuredProjects'));
+    }
+
+    public function applications()
+    {
+        $applications = Application::where('status', 1)->orderBy('order', 'asc')->orderBy('id', 'asc')->get();
+        return view('frontend.applications', compact('applications'));
+    }
+
+    public function showRegistrationForm($id)
+    {
+        $application = Application::where('status', 1)->findOrFail($id);
+        return view('frontend.application-register', compact('application'));
+    }
+
+    public function applicationRegister(Request $request, $id)
+    {
+        $app = Application::where('status', 1)->findOrFail($id);
+
+        $request->validate([
+            'name'         => 'required|string|max:255',
+            'email'        => 'required|email|max:255',
+            'phone'        => 'nullable|string|max:50',
+            'organization' => 'nullable|string|max:255',
+            'designation'  => 'nullable|string|max:255',
+            'purpose'      => 'nullable|string|max:1000',
+        ]);
+
+        $registration = ApplicationRegistration::create([
+            'application_id' => $app->id,
+            'name'           => trim($request->name),
+            'email'          => strtolower(trim($request->email)),
+            'phone'          => $request->filled('phone') ? trim($request->phone) : null,
+            'organization'   => $request->filled('organization') ? trim($request->organization) : null,
+            'designation'    => $request->filled('designation') ? trim($request->designation) : null,
+            'purpose'        => $request->filled('purpose') ? trim($request->purpose) : null,
+            'ip_address'     => $request->ip(),
+            'user_agent'     => $request->userAgent(),
+        ]);
+
+        // Save session flag indicating user has registered for this app
+        session()->put("registered_app_{$app->id}", true);
+        session()->put("registered_user_email", $registration->email);
+        session()->put("registered_user_name", $registration->name);
+
+        $appLink = $app->app_link;
+        $targetUrl = null;
+        if (!empty($appLink) && $appLink !== '#') {
+            if (!preg_match("~^(?:f|ht)tps?://~i", $appLink) && !str_starts_with($appLink, '/')) {
+                $targetUrl = "https://" . $appLink;
+            } else {
+                $targetUrl = $appLink;
+            }
+        }
+
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json([
+                'success'       => true,
+                'message'       => 'Registration successful! Moving to application...',
+                'app_title'     => $app->title,
+                'app_number'    => $app->display_number,
+                'app_link'      => $targetUrl ?: $app->app_link,
+                'has_link'      => !empty($targetUrl),
+                'redirect_url'  => $targetUrl,
+                'user_name'     => $registration->name,
+                'user_email'    => $registration->email,
+            ]);
+        }
+
+        if (!empty($targetUrl)) {
+            return redirect()->away($targetUrl);
+        }
+
+        return redirect()->route('frontend.applications.register.form', $app->id)
+            ->with('success', 'Registration completed successfully! Your details have been recorded. The application link is currently being configured by GMET administration.');
     }
 
     public function partners()

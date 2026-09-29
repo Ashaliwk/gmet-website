@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 // Frontend Controllers
 use App\Http\Controllers\frontend\FrontendController;
 
-// Backend Controllers
 use App\Http\Controllers\backend\AdminLoginController;
 use App\Http\Controllers\backend\AdminHomeController;
 use App\Http\Controllers\backend\AdminServicesController;
@@ -15,17 +14,16 @@ use App\Http\Controllers\backend\AdminPartnersController;
 use App\Http\Controllers\backend\AdminContactsController;
 use App\Http\Controllers\backend\AdminFaqsController;
 use App\Http\Controllers\backend\AdminReviewController;
+use App\Http\Controllers\backend\AdminApplicationsController;
 
-/*
-|--------------------------------------------------------------------------
-| GMET Public Frontend Routes
-|--------------------------------------------------------------------------
-*/
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.home');
 Route::get('/about', [FrontendController::class, 'about'])->name('frontend.about');
 Route::get('/services', [FrontendController::class, 'services'])->name('frontend.services');
 Route::get('/team', [FrontendController::class, 'team'])->name('frontend.team');
 Route::get('/projects', [FrontendController::class, 'projects'])->name('frontend.projects');
+Route::get('/applications', [FrontendController::class, 'applications'])->name('frontend.applications');
+Route::get('/applications/{id}/register', [FrontendController::class, 'showRegistrationForm'])->name('frontend.applications.register.form');
+Route::post('/applications/{id}/register', [FrontendController::class, 'applicationRegister'])->name('frontend.applications.register');
 Route::get('/partners', [FrontendController::class, 'partners'])->name('frontend.partners');
 Route::get('/resources', [FrontendController::class, 'resources'])->name('frontend.resources');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('frontend.contact');
@@ -36,6 +34,7 @@ Route::redirect('/pages/about.html', '/about');
 Route::redirect('/pages/services.html', '/services');
 Route::redirect('/pages/team.html', '/team');
 Route::redirect('/pages/projects.html', '/projects');
+Route::redirect('/pages/applications.html', '/applications');
 Route::redirect('/pages/partners.html', '/partners');
 Route::redirect('/pages/resources.html', '/resources');
 Route::redirect('/pages/contact.html', '/contact');
@@ -64,11 +63,6 @@ Route::get('/admin/login', function () {
 Route::post('/admin/login', [AdminLoginController::class, 'onLogin']);
 Route::get('/admin/logout', [AdminLoginController::class, 'logoutAdmin'])->name('admin.logout');
 
-/*
-|--------------------------------------------------------------------------
-| Admin Panel Routes
-|--------------------------------------------------------------------------
-*/
 Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin.dashboard');
 
 // Admin Accounts
@@ -106,6 +100,17 @@ Route::get('/admin/project-edit/{id}', [AdminProjectsController::class, 'editPro
 Route::put('/admin/project-edit/{id}', [AdminProjectsController::class, 'updateProject'])->name('project.update');
 Route::delete('/admin/project-delete/{id}', [AdminProjectsController::class, 'deleteProject'])->name('project.delete');
 Route::patch('/admin/project-status/{id}', [AdminProjectsController::class, 'toggleStatus'])->name('project.status');
+
+// GMET Applications Management
+Route::get('/admin/applications', [AdminApplicationsController::class, 'index'])->name('admin.applications.index');
+Route::get('/admin/application-add', [AdminApplicationsController::class, 'create'])->name('admin.applications.create');
+Route::post('/admin/application-add', [AdminApplicationsController::class, 'store'])->name('admin.applications.store');
+Route::get('/admin/application-edit/{id}', [AdminApplicationsController::class, 'edit'])->name('admin.applications.edit');
+Route::put('/admin/application-edit/{id}', [AdminApplicationsController::class, 'update'])->name('admin.applications.update');
+Route::delete('/admin/application-delete/{id}', [AdminApplicationsController::class, 'destroy'])->name('admin.applications.delete');
+Route::patch('/admin/application-status/{id}', [AdminApplicationsController::class, 'toggleStatus'])->name('admin.applications.status');
+Route::get('/admin/application-registrations', [AdminApplicationsController::class, 'registrations'])->name('admin.applications.registrations');
+Route::delete('/admin/application-registration-delete/{id}', [AdminApplicationsController::class, 'deleteRegistration'])->name('admin.applications.registration.delete');
 
 // GMET Partners Management
 Route::get('/admin/partners', [AdminPartnersController::class, 'index'])->name('partner.show');
@@ -154,4 +159,4 @@ Route::put('/admin/blogs/{id}', [AdminBlogController::class, 'update'])->name('a
 Route::delete('/admin/blogs/{id}', [AdminBlogController::class, 'destroy'])->name('admin.blogs.destroy');
 
 
-/* THIS WEBSITE IS MADE BY MUHAMMAD ALI */
+/* THIS WEBSITE IS MADE BY MUHAMMAD ALI ASHRAF*/

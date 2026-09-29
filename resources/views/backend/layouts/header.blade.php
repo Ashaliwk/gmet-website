@@ -103,6 +103,22 @@
                 </div>
             </li>
 
+            <!-- Applications -->
+            <li class="nav-item {{ Request::is('admin/application*') ? 'active':''}}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseApplications"
+                    aria-expanded="true" aria-controls="collapseApplications">
+                    <i class="fas fa-fw fa-laptop-code"></i>
+                    <span>Applications</span>
+                </a>
+                <div id="collapseApplications" class="collapse {{ Request::is('admin/application*') ? 'show':''}}" aria-labelledby="headingApplications" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ Request::is('admin/applications') ? 'active':''}}" href="{{url('/admin/applications')}}">All Applications</a>
+                        <a class="collapse-item {{ Request::is('admin/application-add') ? 'active':''}}" href="{{url('/admin/application-add')}}">Add Application</a>
+                        <a class="collapse-item {{ Request::is('admin/application-registrations') ? 'active':''}}" href="{{url('/admin/application-registrations')}}">Registered Users</a>
+                    </div>
+                </div>
+            </li>
+
             {{-- Partners feature removed --}}
             <li class="nav-item {{ Request::is('admin/blog*') ? 'active':''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog"

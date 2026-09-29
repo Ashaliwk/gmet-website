@@ -1531,7 +1531,8 @@ body.dark .mini-service,
 body.dark .service-card,
 body.dark .glass-card,
 body.dark .stat-card,
-body.dark .industry-card {
+body.dark .industry-card,
+body.dark .application-card {
     background: #122017;
     border-color: #263b2a;
     color: #edf5ea;
@@ -1541,7 +1542,8 @@ body.dark .service-card h3,
 body.dark .project-card h4,
 body.dark .team-card h4,
 body.dark .team-card h5,
-body.dark .value-card h4 {
+body.dark .value-card h4,
+body.dark .app-title {
     color: #edf5ea;
 }
 body.dark .mission-card p,
@@ -1550,8 +1552,9 @@ body.dark .team-card p,
 body.dark .project-card p,
 body.dark .partner-card p,
 body.dark .mini-service p,
-body.dark .service-card p {
-    color: #aebaae;
+body.dark .service-card p,
+body.dark .app-description {
+    color: #aebaae !important;
 }
 body.dark .quote-box {
     background: #132219;
