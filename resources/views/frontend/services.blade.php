@@ -14,6 +14,10 @@
 <main>
   <section class="section">
     <div class="container">
+      <div class="section-heading text-center reveal">
+        <span class="eyebrow">Our Services</span>
+        <h2>Explore Our Services &amp; Solutions</h2>
+      </div>
       <div class="row g-4">
         @forelse($services as $service)
         <div class="col-md-6 col-xl-4 reveal">

@@ -656,7 +656,7 @@ a {
 }
 .service-title {
     margin-top: 6px;
-    color: black;
+    color: var(--text);
     font-weight: 700;
 }
 
@@ -1471,7 +1471,18 @@ body.dark .why-card-content p {
     transform: none;
 }
 body.dark {
+    --bs-heading-color: #edf5ea;
+    --bs-body-color: #edf5ea;
+    --bs-body-bg: #0b140d;
     background: #0b140d;
+    color: #edf5ea;
+}
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
     color: #edf5ea;
 }
 body.dark .site-nav {
@@ -1489,30 +1500,65 @@ body.dark .nav-link.active {
 body.dark .section {
     background: #0d1710;
 }
-.dark .section-tint {
+.dark .section-tint,
+body.dark .section-tint {
     background: #101c13;
+}
+body.dark .eyebrow {
+    color: #8ed382;
+}
+body.dark .eyebrow.light {
+    color: #d5eac8;
+}
+body.dark .section-heading h1,
+body.dark .section-heading h2,
+body.dark .section-heading h3 {
+    color: #edf5ea;
+}
+body.dark .section-heading p {
+    color: #aebaae;
+}
+body.dark .service-title {
+    color: #edf5ea;
 }
 body.dark .mission-card,
 body.dark .info-panel,
 body.dark .partner-card,
 body.dark .project-card,
 body.dark .team-card,
-body.dark .value-card {
+body.dark .value-card,
+body.dark .mini-service,
+body.dark .service-card,
+body.dark .glass-card,
+body.dark .stat-card,
+body.dark .industry-card {
     background: #122017;
     border-color: #263b2a;
+    color: #edf5ea;
+}
+body.dark .mini-service h3,
+body.dark .service-card h3,
+body.dark .project-card h4,
+body.dark .team-card h4,
+body.dark .team-card h5,
+body.dark .value-card h4 {
+    color: #edf5ea;
 }
 body.dark .mission-card p,
 body.dark .value-card p,
 body.dark .team-card p,
 body.dark .project-card p,
-body.dark .partner-card p {
+body.dark .partner-card p,
+body.dark .mini-service p,
+body.dark .service-card p {
     color: #aebaae;
 }
 body.dark .quote-box {
     background: #132219;
     color: #c6d3c5;
 }
-body.dark .chip-list span {
+body.dark .chip-list span,
+body.dark .software-cloud span {
     background: #172a1b;
     border-color: #29462c;
     color: #d3e8cd;
