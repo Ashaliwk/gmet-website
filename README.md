@@ -1,4 +1,4 @@
-# Hostily — Admin Panel (extracted)
+# GMET — Admin Panel
 
 This is the **backend/admin panel** extracted from
 [Ashaliwk/Laravel-hostily](https://github.com/Ashaliwk/Laravel-hostily) as a
