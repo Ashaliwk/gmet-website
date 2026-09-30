@@ -1,13 +1,13 @@
 @extends('frontend.layouts.master')
-@section('title', 'Applications')
+@section('title', 'Projects')
 
 @section('content')
 <header class="page-head">
   <div class="container">
-    <span class="eyebrow light">Completed Applications</span>
+    <span class="eyebrow light">Completed Projects</span>
     <h1>Interactive Systems & Digital Geospatial Solutions</h1>
     <p>
-      Explore our operational GIS applications, analytical platforms, GeoAI dashboards, and spatial decision systems designed and built by GMET.
+      Explore our operational GIS Projects, analytical platforms, GeoAI dashboards, and spatial decision systems designed and built by GMET.
     </p>
   </div>
 </header>
@@ -17,9 +17,9 @@
     <div class="container">
       <div class="section-heading reveal text-center mb-5">
         <span class="eyebrow">Our Portfolio</span>
-        <h2>Completed Applications</h2>
+        <h2>Completed Projects</h2>
         <p class="mx-auto" style="max-width: 760px;">
-          Select any application below to register and access the operational dashboard or tool. Once registered with a valid email, you will immediately move to the application.
+          Select any project below to register and access the operational dashboard or tool. Once registered with a valid email, you will immediately move to the application.
         </p>
       </div>
 
@@ -35,7 +35,7 @@
         @forelse($applications as $app)
         <div class="col-lg-4 col-md-6 reveal">
           <div class="application-card h-100 d-flex flex-column" onclick="window.location.href='{{ url('/applications/'.$app->id.'/register') }}'">
-            
+
             <!-- Card Header / Image or Banner -->
             <div class="app-card-media position-relative">
               @if($app->image_url)
@@ -45,7 +45,7 @@
                   <i class="fas fa-laptop-code"></i>
                 </div>
               @endif
-              
+
               <!-- Application Number Badge -->
               <span class="app-number-badge">
                 <i class="fas fa-hashtag me-1"></i>{{ $app->display_number }}
@@ -70,14 +70,14 @@
               </div>
 
               <h3 class="app-title mb-2">{{ $app->title }}</h3>
-              
+
               <p class="app-description text-muted flex-grow-1">
                 {{ Str::limit(strip_tags($app->description), 160) }}
               </p>
 
               <!-- Card Action Button: Single dedicated button -->
               <div class="app-card-footer pt-3 mt-auto border-top">
-                <a href="{{ url('/applications/'.$app->id.'/register') }}" 
+                <a href="{{ url('/applications/'.$app->id.'/register') }}"
                    class="btn btn-gmet-action w-100"
                    onclick="event.stopPropagation();">
                   <i class="fas fa-user-plus me-2"></i> Register for Access

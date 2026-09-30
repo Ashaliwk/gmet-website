@@ -50,7 +50,7 @@
         </div>
         <div class="col-lg-6 reveal">
           <div class="contact-box">
-            <h3>Send an enquiry</h3>
+            <h3 class="mb-5">Submit a request</h3>
 
             @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">

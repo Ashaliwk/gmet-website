@@ -1,27 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const body = document.body,
-        toggle = document.getElementById("themeToggle");
-    const saved = localStorage.getItem("gmet-theme");
-    if (saved === "dark") body.classList.add("dark");
-    const sync = () => {
-        if (toggle)
-            toggle.textContent = body.classList.contains("dark") ? "☀" : "☾";
-    };
-    sync();
-    if (toggle)
-        toggle.addEventListener("click", () => {
-            body.classList.toggle("dark");
-            localStorage.setItem(
-                "gmet-theme",
-                body.classList.contains("dark") ? "dark" : "light",
-            );
-            sync();
-        });
+    // Clear any previously saved dark theme preference
+    localStorage.removeItem("gmet-theme");
+    document.body.classList.remove("dark");
+
     const nav = document.querySelector(".site-nav");
     const onScroll = () =>
         nav && nav.classList.toggle("scrolled", window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+
     const els = document.querySelectorAll(".reveal");
     const io = new IntersectionObserver(
         (es) =>
@@ -34,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
         { threshold: 0.12 },
     );
     els.forEach((e) => io.observe(e));
-    document.querySelectorAll(".navbar-collapse .nav-link").forEach((a) =>
+
+    // Auto-close mobile nav when a link is clicked
+    document.querySelectorAll(".navbar-collapse .nav-link, .navbar-collapse .dropdown-item").forEach((a) =>
         a.addEventListener("click", () => {
             const c = document.querySelector(".navbar-collapse");
             if (c && c.classList.contains("show")) {
