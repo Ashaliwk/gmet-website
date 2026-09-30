@@ -264,14 +264,10 @@
           <h2>Leadership with a geospatial vision</h2>
           <div class="quote-box">
             <p>
-              With over 15 years in geospatial technology, I've led
-              transformative projects across the region including
-              Bangladesh's first navigation system and Pakistan's first
-              Cadastral Mapping of State Lands Project.
+              With more than fifteen years of experience in geospatial technology, I have had the privilege of leading transformative projects across the region. These include Pakistan's first Cadastral Mapping of State Lands Project,Bangladesh's first navigation system, religious-site mapping, and a range of web-based GIS initiatives.
             </p>
             <p class="mb-0">
-              That journey led me to found GMET in 2025 to turn geospatial
-              intelligence into practical, measurable impact.
+              This journey has taught me that the potential of geospatial technology is limited only by our imagination.
             </p>
           </div>
           <a

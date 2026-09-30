@@ -27,7 +27,7 @@
       </div>
       <div class="profile-page-image mt-5 reveal">
         <img
-          src="{{ asset('assets/profile-pages/page-14.jpg') }}"
+          src="{{ asset('assets/profile-pages/page-14.png') }}"
           alt="GMET software profile page"
         />
       </div>
@@ -58,7 +58,7 @@
         <div class="col-md-6">
           <div class="profile-page-image reveal">
             <img
-              src="{{ asset('assets/profile-pages/page-26.jpg') }}"
+              src="{{ asset('assets/profile-pages/page-26.png') }}"
               alt="GMET equipment page 26"
             />
           </div>
@@ -66,7 +66,7 @@
         <div class="col-md-6">
           <div class="profile-page-image reveal">
             <img
-              src="{{ asset('assets/profile-pages/page-27.jpg') }}"
+              src="{{ asset('assets/profile-pages/page-27.png') }}"
               alt="GMET equipment page 27"
             />
           </div>

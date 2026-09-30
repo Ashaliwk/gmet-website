@@ -50,8 +50,7 @@
           <div class="ceo-photo-wrap">
             <img
               src="{{ asset('assets/images/ceo-abida-parveen.png') }}"
-              alt="Mrs. Abida Parveen"
-            />
+              alt="Mrs. Abida Parveen" />
           </div>
           <h3 class="mt-4">Mrs. Abida Parveen</h3>
           <p class="role">Chief Executive Officer</p>
@@ -61,30 +60,16 @@
           <h2>Transforming geospatial intelligence into impact.</h2>
           <div class="quote-box">
             <p>
-              With over 15 years in geospatial technology, I've led
-              transformative projects across the region including
-              Bangladesh's first navigation system and Pakistan's first
-              Cadastral Mapping of State Lands Project, along with
-              religious-site mapping and web-based GIS initiatives.
+              With more than fifteen years of experience in geospatial technology, I have had the privilege of leading transformative projects across the region. These include Pakistan's first Cadastral Mapping of State Lands Project,Bangladesh's first navigation system, religious-site mapping, and a range of web-based GIS initiatives.
             </p>
             <p>
-              This journey convinced me that geospatial technology's
-              potential is limited only by our imagination. That belief led
-              me to found Geo Mapping Engineering &amp; Technologies (GMET) in
-              2025 to turn geospatial intelligence into practical,
-              measurable impact.
+              This journey has taught me that the potential of geospatial technology is limited only by our imagination. That conviction inspired me to establish Geo Mapping Engineering & Technologies (GMET) in 2025, with a clear purpose: to turn geospatial intelligence into practical, measurable impact.
             </p>
             <p>
-              Pakistan holds immense potential for geospatial innovation,
-              yet gaps remain in spatial data collection, analysis, and
-              accessibility. At GMET, we bridge these gaps through GIS,
-              surveying, remote sensing, geomatics, and engineering
-              solutions that drive smarter, sustainable decision-making.
+              Pakistan holds immense potential for geospatial innovation, yet significant gaps remain in spatial data collection, analysis, and accessibility. At GMET, we address these gaps through integrated GIS, surveying, remote sensing, geomatics, and engineering solutions that enable smarter, more sustainable decision-making.
             </p>
             <p class="mb-0">
-              Guided by innovation, collaboration, integrity, and
-              excellence, our goal isn't just to map the world but to
-              understand it, connect it, and help shape its future.
+              Guided by innovation, collaboration, integrity, and excellence, our ambition goes beyond mapping the world. We strive to understand it, connect it, and help shape its future.
             </p>
           </div>
         </div>
@@ -100,8 +85,7 @@
       <div class="profile-page-image reveal">
         <img
           src="{{ asset('assets/profile-pages/page-5.jpg') }}"
-          alt="GMET organizational structure from company profile"
-        />
+          alt="GMET organizational structure from company profile" />
       </div>
     </div>
   </section>
@@ -143,9 +127,8 @@
       </div>
       <div class="profile-page-image reveal">
         <img
-          src="{{ asset('assets/profile-pages/page-7.jpg') }}"
-          alt="GMET core values page"
-        />
+          src="{{ asset('assets/profile-pages/page-7.png') }}"
+          alt="GMET core values page" />
       </div>
     </div>
   </section>
@@ -158,8 +141,7 @@
       <div class="profile-page-image reveal">
         <img
           src="{{ asset('assets/profile-pages/page-8.jpg') }}"
-          alt="GMET registration and certification page"
-        />
+          alt="GMET registration and certification page" />
       </div>
     </div>
   </section>

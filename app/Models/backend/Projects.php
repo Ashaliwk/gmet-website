@@ -39,30 +39,38 @@ class Projects extends Model
             return null;
         }
 
-        if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://') || str_starts_with($this->image, 'data:')) {
-            return $this->image;
+        $image = trim($this->image);
+
+        if (str_starts_with($image, 'http://') || str_starts_with($image, 'https://') || str_starts_with($image, 'data:')) {
+            return $image;
         }
 
-        if (file_exists(public_path('uploads/projects/' . $this->image))) {
-            return asset('uploads/projects/' . $this->image);
+        $cleanImage = ltrim($image, '/\\');
+
+        if (file_exists(public_path($cleanImage))) {
+            return asset($cleanImage);
         }
 
-        if (file_exists(public_path('backend/images/projects/' . $this->image))) {
-            return asset('backend/images/projects/' . $this->image);
+        if (file_exists(public_path('uploads/projects/' . $cleanImage))) {
+            return asset('uploads/projects/' . $cleanImage);
         }
 
-        if (file_exists(public_path('assets/images/' . $this->image))) {
-            return asset('assets/images/' . $this->image);
+        if (file_exists(public_path('backend/images/projects/' . $cleanImage))) {
+            return asset('backend/images/projects/' . $cleanImage);
         }
 
-        if (file_exists(public_path('storage/' . $this->image))) {
-            return asset('storage/' . $this->image);
+        if (file_exists(public_path('assets/images/' . $cleanImage))) {
+            return asset('assets/images/' . $cleanImage);
         }
 
-        if (file_exists(public_path($this->image))) {
-            return asset($this->image);
+        if (file_exists(public_path('storage/' . $cleanImage))) {
+            return asset('storage/' . $cleanImage);
         }
 
-        return asset('uploads/projects/' . $this->image);
+        if (str_starts_with($cleanImage, 'uploads/projects/')) {
+            return asset($cleanImage);
+        }
+
+        return asset('uploads/projects/' . $cleanImage);
     }
 }
