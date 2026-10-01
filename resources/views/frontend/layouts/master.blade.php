@@ -204,5 +204,4 @@
   @include('frontend.chatbot')
   @stack('scripts')
 </body>
-
 </html>
