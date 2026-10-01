@@ -13,8 +13,28 @@
 }
 html {
     scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+img,
+video,
+svg,
+iframe {
+    max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    overflow-wrap: break-word;
 }
 body {
+    max-width: 100%;
+    overflow-x: clip; /* stops sideways scroll without breaking sticky/fixed nav */
     margin: 0;
     font-family: Inter, sans-serif;
     background: #fff;
@@ -85,7 +105,7 @@ a {
 .nav-link:hover,
 .nav-link.active {
     color: var(--gmet-green) !important;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-size: 19px;
 }
 .navbar-toggler {
@@ -178,14 +198,6 @@ a {
     .navbar-brand small {
         font-size: 0.25rem;
     }
-}
-.theme-toggle {
-    border: 1px solid #cbd8c8;
-    color: var(--gmet-green);
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    background: #fff;
 }
 
 .hero {
@@ -526,6 +538,7 @@ a {
 .section {
     padding: 6rem 0;
     background: #fff;
+    overflow-x: clip;
 }
 .section-tint {
     background: var(--gmet-soft);
@@ -633,6 +646,136 @@ a {
     color: #4d584e;
     line-height: 1.75;
 }
+/* ===== Services overview section (append to the end of style.css) ===== */
+
+.services-overview .section-heading {
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3.25rem;
+}
+.services-overview .section-heading h2 {
+    color: var(--gmet-dark);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+.services-overview .section-heading p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Card */
+.services-overview .mini-service {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2rem 1.75rem 1.9rem;
+    background: #fff;
+    border: 1px solid #dfe9dc;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(25, 70, 30, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+/* red accent bar that grows on hover */
+.services-overview .mini-service::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gmet-red), var(--gmet-green));
+    transform: scaleX(0.18);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+.services-overview .mini-service:hover {
+    transform: translateY(-6px);
+    border-color: rgba(31, 93, 43, 0.35);
+    box-shadow: 0 22px 44px rgba(18, 59, 29, 0.12);
+}
+.services-overview .mini-service:hover::before {
+    transform: scaleX(1);
+}
+
+/* Number badge */
+.services-overview .mini-service-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    min-width: 3rem;
+    height: 2rem;
+    padding: 0 0.75rem;
+    margin-bottom: 1.1rem;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: var(--gmet-green);
+    background: var(--gmet-light);
+    border-radius: 999px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.services-overview .mini-service:hover .mini-service-num {
+    background: var(--gmet-green);
+    color: #fff;
+}
+
+.services-overview .mini-service h3 {
+    margin: 0 0 0.65rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--gmet-dark);
+}
+.services-overview .mini-service p {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+/* Empty state */
+.services-overview .services-empty {
+    padding: 2.5rem 1rem;
+    color: var(--muted);
+    background: #fff;
+    border: 1px dashed #cfdccb;
+    border-radius: 1rem;
+}
+
+/* Button area */
+.services-overview .services-cta {
+    margin-top: 3.5rem;
+}
+.services-overview .services-cta .btn-gmet {
+    padding: 0.95rem 2.2rem;
+    box-shadow: 0 10px 24px rgba(229, 57, 53, 0.25);
+}
+.services-overview .services-cta .btn-gmet:hover {
+    box-shadow: 0 14px 30px rgba(229, 57, 53, 0.35);
+}
+
+/* Staggered reveal (uses --reveal-delay set in the markup) */
+.services-overview .reveal {
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+@media (max-width: 575px) {
+    .services-overview .section-heading { margin-bottom: 2.25rem; }
+    .services-overview .mini-service { padding: 1.6rem 1.4rem; }
+    .services-overview .services-cta { margin-top: 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .services-overview .mini-service,
+    .services-overview .mini-service::before,
+    .services-overview .reveal { transition: none; }
+    .services-overview .mini-service:hover { transform: none; }
+}
 .service-box {
     height: 100%;
     padding: 1.5rem;
@@ -734,6 +877,24 @@ a {
     font-size: 0.78rem;
     font-weight: 700;
 }
+
+.contact-btn {
+    display: inline-block;
+    padding: 10px 22px !important;
+    border-radius: 30px;
+    background: #198754;
+    color: #fff !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.contact-btn:hover,
+.contact-btn.active {
+    background: #146c43;
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(25, 135, 84, 0.25);
+}
+
 .contact-box {
     background: #fff;
     color: #283229;
@@ -1164,52 +1325,6 @@ a {
     transition: color 0.3s ease;
 }
 
-body.dark .why-choose-section {
-    background: #07100a;
-
-    color: #ffffff;
-}
-
-body.dark .why-choose-section::before {
-    background: rgba(42, 151, 79, 0.08);
-}
-
-body.dark .why-title {
-    color: #ffffff;
-}
-
-body.dark .why-description {
-    color: #c5d0c6;
-}
-
-body.dark .why-button {
-    color: #ffffff;
-
-    border-color: rgba(255, 255, 255, 0.25);
-}
-
-body.dark .why-card {
-    background: rgba(255, 255, 255, 0.025);
-
-    border-color: rgba(255, 255, 255, 0.12);
-}
-
-body.dark .why-card:hover {
-    background: rgba(42, 151, 79, 0.055);
-
-    border-color: rgba(42, 151, 79, 0.45);
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-}
-
-body.dark .why-card-content h3 {
-    color: #ffffff;
-}
-
-body.dark .why-card-content p {
-    color: #929b94;
-}
-
 /* =========================================
    RESPONSIVE
    ========================================= */
@@ -1470,107 +1585,9 @@ body.dark .why-card-content p {
     opacity: 1;
     transform: none;
 }
-body.dark {
-    --bs-heading-color: #edf5ea;
-    --bs-body-color: #edf5ea;
-    --bs-body-bg: #0b140d;
-    background: #0b140d;
-    color: #edf5ea;
-}
-body.dark h1,
-body.dark h2,
-body.dark h3,
-body.dark h4,
-body.dark h5,
-body.dark h6 {
-    color: #edf5ea;
-}
-body.dark .site-nav {
-    background: rgba(12, 36, 18, 0.96);
-    border-color: rgba(255, 255, 255, 0.1);
-}
-body.dark .navbar-brand,
-.dark .nav-link {
-    color: #eef7e9 !important;
-}
-body.dark .nav-link:hover,
-body.dark .nav-link.active {
-    color: #b8db98 !important;
-}
-body.dark .section {
-    background: #0d1710;
-}
-.dark .section-tint,
-body.dark .section-tint {
-    background: #101c13;
-}
-body.dark .eyebrow {
-    color: #8ed382;
-}
-body.dark .eyebrow.light {
-    color: #d5eac8;
-}
-body.dark .section-heading h1,
-body.dark .section-heading h2,
-body.dark .section-heading h3 {
-    color: #edf5ea;
-}
-body.dark .section-heading p {
-    color: #aebaae;
-}
-body.dark .service-title {
-    color: #edf5ea;
-}
-body.dark .mission-card,
-body.dark .info-panel,
-body.dark .partner-card,
-body.dark .project-card,
-body.dark .team-card,
-body.dark .value-card,
-body.dark .mini-service,
-body.dark .service-card,
-body.dark .glass-card,
-body.dark .stat-card,
-body.dark .industry-card,
-body.dark .application-card {
-    background: #122017;
-    border-color: #263b2a;
-    color: #edf5ea;
-}
-body.dark .mini-service h3,
-body.dark .service-card h3,
-body.dark .project-card h4,
-body.dark .team-card h4,
-body.dark .team-card h5,
-body.dark .value-card h4,
-body.dark .app-title {
-    color: #edf5ea;
-}
-body.dark .mission-card p,
-body.dark .value-card p,
-body.dark .team-card p,
-body.dark .project-card p,
-body.dark .partner-card p,
-body.dark .mini-service p,
-body.dark .service-card p,
-body.dark .app-description {
-    color: #aebaae !important;
-}
-body.dark .quote-box {
-    background: #132219;
-    color: #c6d3c5;
-}
-body.dark .chip-list span,
-body.dark .software-cloud span {
-    background: #172a1b;
-    border-color: #29462c;
-    color: #d3e8cd;
-}
-body.dark .theme-toggle {
-    background: #132219;
-    color: #d8edce;
-    border-color: #34533a;
-}
+
+
+
 @media (max-width: 991px) {
     .site-nav {
         padding: 0.4rem 0;
@@ -1580,10 +1597,9 @@ body.dark .theme-toggle {
         border-radius: 0.7rem;
         margin-top: 0.5rem;
         padding: 0.5rem 1rem;
+        box-shadow: 0 8px 30px rgba(18, 59, 29, 0.1);
     }
-    .dark .navbar-collapse {
-        background: #122017;
-    }
+
     .brand-logo {
         width: 48px;
         height: 48px;
@@ -1615,6 +1631,8 @@ body.dark .theme-toggle {
     background: var(--gmet-soft);
 }
 .page-head {
+    position: relative;
+    overflow: hidden;
     padding: 9rem 0 5rem;
     background: linear-gradient(135deg, var(--gmet-dark), #58705c);
     color: #fff;
@@ -1654,26 +1672,7 @@ body.dark .theme-toggle {
     height: 230px;
     object-fit: cover;
 }
-.dark .section-soft,
-body.dark .section-soft {
-    background: #101c13;
-}
-body.dark .service-card,
-body.dark .glass-card,
-body.dark .stat-card {
-    background: #122017;
-    border-color: #263b2a;
-    color: #edf5ea;
-}
 
-/* Multi-page GMET profile additions */
-.page-head {
-    position: relative;
-    overflow: hidden;
-    padding: 9.5rem 0 5rem;
-    background: linear-gradient(135deg, #0a2813 0%, #1f5d2b 62%, #7a2222 130%);
-    color: #fff;
-}
 .page-head:after {
     content: "";
     position: absolute;
@@ -1896,7 +1895,9 @@ body.dark .stat-card {
     border: 1px solid #dce7d9;
     border-radius: 1rem;
     background: #fff;
-    overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
     box-shadow: 0 12px 35px rgba(25, 70, 30, 0.06);
 }
 .project-table table {
@@ -2039,6 +2040,55 @@ body.dark .stat-card {
 .carousel .hero .eyebrow,
 .carousel .hero .hero-tags span {
     color: var(--gmet-green) !important;
+}
+
+/* =========================================
+   NAVBAR DROPDOWN
+   ========================================= */
+
+/* Light-mode dropdown */
+.site-dropdown {
+    background: #fff;
+    border: 1px solid #dfe8dc;
+    border-radius: 0.6rem;
+    box-shadow: 0 10px 30px rgba(18, 59, 29, 0.12);
+    padding: 0.4rem 0;
+    min-width: 170px;
+}
+.site-dropdown .dropdown-item {
+    color: #334333;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.55rem 1.1rem;
+    transition: 0.2s ease;
+}
+.site-dropdown .dropdown-item:hover,
+.site-dropdown .dropdown-item.active,
+.site-dropdown .dropdown-item:active {
+    background: var(--gmet-light);
+    color: var(--gmet-green);
+}
+
+/* On mobile, show dropdown inline (not floating) */
+@media (max-width: 991.98px) {
+    .site-dropdown {
+        box-shadow: none;
+        border: none;
+        border-left: 3px solid var(--gmet-green);
+        border-radius: 0;
+        padding: 0;
+        margin-left: 1rem;
+        background: transparent;
+    }
+    .site-dropdown .dropdown-item {
+        font-size: 0.9rem;
+        padding: 0.45rem 0.8rem;
+        color: #334333;
+    }
+    .site-dropdown .dropdown-item:hover {
+        background: transparent;
+        color: var(--gmet-green);
+    }
 }
 
 /* THIS WEBSITE IS MADE BY MUHAMMAD ALI */

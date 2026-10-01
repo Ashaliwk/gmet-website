@@ -25,16 +25,16 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-xl fixed-top site-nav">
-    <div class="container-fluid px-3 px-xl-1">
+  <nav class="navbar navbar-expand-lg fixed-top site-nav" id="siteNavbar">
+    <div class="container-fluid px-3 px-lg-4">
       <a class="navbar-brand" href="{{ url('/') }}">
         <img
           src="{{ asset('assets/images/gmet-logo.png') }}"
           alt="GMET Logo"
-          class="brand-logo ms-xl-4">
-        <span class="brand-text fs-4">
+          class="brand-logo">
+        <span class="brand-text fs-5">
           GME <b>TECHNOLOGIES</b>
-          <small>Geo Mapping Engineering & Technologies</small>
+          <small>Geo Mapping Engineering &amp; Technologies</small>
         </span>
       </a>
       <button
@@ -48,55 +48,51 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto align-items-xl-center">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+
+          {{-- Home --}}
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}"
-              href="{{ url('/') }}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('about*') ? 'active' : '' }}"
-              href="{{ url('/about') }}">About us</a>
+            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('services*') ? 'active' : '' }}"
-              href="{{ url('/services') }}">Services</a>
+            <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ url('/about') }}">About us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('team*') ? 'active' : '' }}"
-              href="{{ url('/team') }}">Team</a>
+            <a class="nav-link {{ Request::is('projects*') ? 'active' : '' }}" href="{{ url('/projects') }}">Projects</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {{ (Request::is('services*') || Request::is('applications*')) ? 'active' : '' }}"
+              href="#" id="solutionsDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Solutions
+            </a>
+            <ul class="dropdown-menu site-dropdown" aria-labelledby="solutionsDropdown">
+              <li><a class="dropdown-item {{ Request::is('services*') ? 'active' : '' }}" href="{{ url('/services') }}">Services</a></li>
+              <li><a class="dropdown-item {{ Request::is('applications*') ? 'active' : '' }}" href="{{ url('/applications') }}">Products</a></li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('projects*') ? 'active' : '' }}"
-              href="{{ url('/projects') }}">Projects</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link {{ Request::is('partners*') ? 'active' : '' }}"
-              href="{{ url('/partners') }}">Partners</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('applications*') ? 'active' : '' }}"
-              href="{{ url('/applications') }}">Applications</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}"
-              href="{{ url('/blog') }}">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('resources*') ? 'active' : '' }}"
-              href="{{ url('/resources') }}">Resources</a>
+            <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}" href="{{ url('/blog') }}">Blog</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {{ (Request::is('ecosystem*') || Request::is('partners*')) ? 'active' : '' }}"
+              href="#" id="solutionsDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Ecosystem
+            </a>
+            <ul class="dropdown-menu site-dropdown" aria-labelledby="solutionsDropdown">
+              <li class="nav-item">
+                <a class="dropdown-item {{ Request::is('partners*') ? 'active' : '' }}" href="{{ url('/partners') }}">Partners</a>
+              </li>
+              <li class="nav-item">
+                <a class="dropdown-item {{ Request::is('resources*') ? 'active' : '' }}" href="{{ url('/resources') }}">Resources</a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('contact*') ? 'active' : '' }}"
-              href="{{ url('/contact') }}">Contact</a>
+            <a class="nav-link {{ Request::is('team*') ? 'active' : '' }}" href="{{ url('/team') }}">Team</a>
           </li>
-          <li class="nav-item ms-xl-1 mt-2 mt-xl-0">
-            <button
-              id="themeToggle"
-              class="btn theme-toggle"
-              type="button"
-              aria-label="Toggle light and dark theme">
-              ☾
-            </button>
+          <li class="nav-item">
+            <a class="nav-link contact-btn {{ Request::is('contact*') ? 'active' : '' }}" href="{{ url('/contact') }}">Contact Us</a>
           </li>
         </ul>
       </div>
@@ -118,7 +114,7 @@
             </div>
           </div>
           <p class="footer-description">
-            Geo Mapping Engineering & Technologies — transforming
+            Geo Mapping Engineering &amp; Technologies — transforming
             geospatial intelligence into impact.
           </p>
           <div class="footer-contact">
@@ -145,15 +141,12 @@
                 <i class="fa-solid fa-location-dot"></i>
               </span>
               <span>
-                Office #103 & 104, 1st Floor, Rawal Mall &
+                Office #103 &amp; 104, 1st Floor, Rawal Mall &amp;
                 Residencia, Rawalpindi
               </span>
             </div>
           </div>
           <div class="footer-socials">
-            <!--<a href="https://www.linkedin.com/feed/" aria-label="LinkedIn">-->
-            <!--  <i class="fa-brands fa-linkedin-in"></i>-->
-            <!--</a>-->
             <a href="https://www.facebook.com/profile.php?id=61593893199538"
               aria-label="Facebook">
               <i class="fa-brands fa-facebook-f"></i>
@@ -167,21 +160,11 @@
             Services
           </h6>
           <div class="ms-4">
-            <a href="{{ url('/services') }}">
-              Web GIS
-            </a>
-            <a href="{{ url('/services') }}">
-              GeoAI
-            </a>
-            <a href="{{ url('/services') }}">
-              LULC
-            </a>
-            <a href="{{ url('/services') }}">
-              Landslide Mapping
-            </a>
-            <a href="{{ url('/services') }}">
-              Town Planning
-            </a>
+            <a href="{{ url('/services') }}">Web GIS</a>
+            <a href="{{ url('/services') }}">GeoAI</a>
+            <a href="{{ url('/services') }}">LULC</a>
+            <a href="{{ url('/services') }}">Landslide Mapping</a>
+            <a href="{{ url('/services') }}">Town Planning</a>
           </div>
         </div>
         <div class="col-sm-4 col-lg-2 footer-column me-5">
@@ -190,56 +173,36 @@
             Applications
           </h6>
           <div class="ms-4">
-            <a href="{{ url('/applications') }}">
-              All Applications
-            </a>
-            <a href="{{ url('/applications') }}">
-              Government & Civil
-            </a>
-            <a href="{{ url('/applications') }}">
-              Agriculture GIS
-            </a>
-            <a href="{{ url('/applications') }}">
-              Environmental Mapping
-            </a>
+            <a href="{{ url('/applications') }}">All Applications</a>
+            <a href="{{ url('/applications') }}">Government &amp; Civil</a>
+            <a href="{{ url('/applications') }}">Agriculture GIS</a>
+            <a href="{{ url('/applications') }}">Environmental Mapping</a>
           </div>
         </div>
         <div class="col-sm-4 col-lg-2 footer-column">
           <h6>
             <span class="footer-line"></span>
-            Company
+            Quick Links
           </h6>
           <div class="ms-4">
-            <a href="{{ url('/about') }}">
-              About Us
-            </a>
-            <a href="{{ url('/team') }}">
-              Our Team
-            </a>
-            <a href="{{ url('/projects') }}">
-              Projects
-            </a>
-            <a href="{{ url('/partner') }}">
-              Partners
-            </a>
-            <a href="{{ url('/contact') }}">
-              Contact
-            </a>
+            <a href="{{ url('/about') }}">About GMET</a>
+            <a href="{{ url('/team') }}">Our Team</a>
+            <a href="{{ url('/projects') }}">Projects</a>
+            <a href="{{ url('/partner') }}">Partners</a>
+            <a href="{{ url('/contact') }}">Contact</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>
-          © 2026 GME Technologies. All rights reserved.
-        </span>
-        <span>
-          Turning Data, Technology & Ideas into Impact
-        </span>
+        <span>© 2026 GME Technologies. All rights reserved.</span>
+        <span>Turning Data, Technology &amp; Ideas into Impact</span>
       </div>
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{ asset('js/main.js') }}"></script>
+  @include('frontend.chatbot')
   @stack('scripts')
 </body>
+
 </html>

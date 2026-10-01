@@ -127,33 +127,34 @@
     </div>
   </section>
 
-  <section class="section section-tint">
+<section class="section section-tint services-overview" aria-labelledby="services-heading">
     <div class="container">
-      <div class="section-heading text-center reveal">
-        <span class="eyebrow">What We Do</span>
-        <h2>Integrated services &amp; solutions</h2>
-        <p>
-          Explore the capabilities presented in the GMET company profile
-        </p>
-      </div>
-      <div class="row g-4">
-        @forelse($services as $srv)
-        <div class="col-md-6 col-lg-4 reveal">
-          <div class="mini-service">
-            <span>{{ str_pad($loop->iteration, 3, '0', STR_PAD_LEFT) }}</span>
-            <h3>{{ $srv->title }}</h3>
-            <p>{{ Str::limit($srv->description, 140) }}</p>
-          </div>
+        <div class="section-heading text-center reveal">
+            <span class="eyebrow">What We Do</span>
+            <h2 id="services-heading">Integrated Services &amp; Solutions</h2>
+            <p>Explore the capabilities presented in the GMET company profile.</p>
         </div>
-        @empty
-        <div class="col-12 text-center text-muted">Services being updated</div>
-        @endforelse
-      </div>
-      <div class="text-center mt-5">
-        <a class="btn btn-gmet" href="{{ url('/services') }}">View All Services</a>
-      </div>
+        <div class="row g-4 justify-content-center">
+            @forelse($services as $srv)
+                <div class="col-md-6 col-lg-4 reveal" style="--reveal-delay: {{ min($loop->index % 3, 2) * 90 }}ms">
+                    <article class="mini-service">
+                        <span class="mini-service-num">{{ str_pad($loop->iteration, 3, '0', STR_PAD_LEFT) }}</span>
+                        <h3>{{ $srv->title }}</h3>
+                        <p>{{ Str::limit($srv->description, 140) }}</p>
+                    </article>
+                </div>
+            @empty
+                <div class="col-12">
+                    <div class="services-empty text-center">Services are being updated. Please check back soon.</div>
+                </div>
+            @endforelse
+        </div>
+        <div class="text-center services-cta">
+            <a class="btn btn-gmet" href="{{ url('/services') }}">View All Services</a>
+        </div>
+
     </div>
-  </section>
+</section>
 
   <section class="why-choose-section">
     <div class="container">
