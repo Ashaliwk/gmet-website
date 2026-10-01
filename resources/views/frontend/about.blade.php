@@ -146,4 +146,6 @@
     </div>
   </section>
 </main>
+
+@include('frontend.partials.team')
 @endsection

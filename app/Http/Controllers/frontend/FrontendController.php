@@ -25,20 +25,15 @@ class FrontendController extends Controller
     }
 
     public function about()
-    {
-        return view('frontend.about');
-    }
+{
+    $team = Team::where('status', 1)->orderBy('order', 'asc')->get();
+    return view('frontend.about', compact('team'));
+}
 
     public function services()
     {
         $services = Services::where('status', 1)->orderBy('order', 'asc')->get();
         return view('frontend.services', compact('services'));
-    }
-
-    public function team()
-    {
-        $team = Team::where('status', 1)->orderBy('order', 'asc')->get();
-        return view('frontend.team', compact('team'));
     }
 
     public function projects()

@@ -89,9 +89,6 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('team*') ? 'active' : '' }}" href="{{ url('/team') }}">Team</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link contact-btn {{ Request::is('contact*') ? 'active' : '' }}" href="{{ url('/contact') }}">Contact Us</a>
           </li>
         </ul>
