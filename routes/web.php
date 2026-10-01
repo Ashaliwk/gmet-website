@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // Frontend Controllers
 use App\Http\Controllers\frontend\FrontendController;
+use App\Http\Controllers\frontend\ChatbotController;
 
 use App\Http\Controllers\backend\AdminLoginController;
 use App\Http\Controllers\backend\AdminHomeController;
@@ -28,6 +29,9 @@ Route::get('/partners', [FrontendController::class, 'partners'])->name('frontend
 Route::get('/resources', [FrontendController::class, 'resources'])->name('frontend.resources');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('frontend.contact');
 Route::post('/contact', [FrontendController::class, 'submitContact'])->name('frontend.contact.submit');
+
+// GMET Chatbot
+Route::post('/chatbot', [ChatbotController::class, 'handle'])->name('chatbot.handle');
 
 Route::redirect('/index.html', '/');
 Route::redirect('/pages/about.html', '/about');

@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 @section('title', 'Projects')
-
 @section('content')
+
 <header class="page-head">
   <div class="container">
     <span class="eyebrow light">Completed Projects</span>
@@ -11,7 +11,6 @@
     </p>
   </div>
 </header>
-
 <main class="applications-page-wrapper">
   <section class="section">
     <div class="container">
@@ -35,7 +34,6 @@
         @forelse($applications as $app)
         <div class="col-lg-4 col-md-6 reveal">
           <div class="application-card h-100 d-flex flex-column" onclick="window.location.href='{{ url('/applications/'.$app->id.'/register') }}'">
-
             <!-- Card Header / Image or Banner -->
             <div class="app-card-media position-relative">
               @if($app->image_url)

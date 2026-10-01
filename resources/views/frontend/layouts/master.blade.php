@@ -54,36 +54,16 @@
           <li class="nav-item">
             <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">Home</a>
           </li>
-
-          {{-- About us Dropdown --}}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {{ (Request::is('about*') || Request::is('team*') || Request::is('blog*')) ? 'active' : '' }}"
-               href="#" id="aboutDropdown" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">
-              About us
-            </a>
-            <ul class="dropdown-menu site-dropdown" aria-labelledby="aboutDropdown">
-              <li><a class="dropdown-item {{ Request::is('about*') ? 'active' : '' }}" href="{{ url('/about') }}">About GMET</a></li>
-              <li><a class="dropdown-item {{ Request::is('team*') ? 'active' : '' }}" href="{{ url('/team') }}">Team</a></li>
-              <li><a class="dropdown-item {{ Request::is('blog*') ? 'active' : '' }}" href="{{ url('/blog') }}">Blog</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ url('/about') }}">About us</a>
           </li>
-
-          {{-- Projects --}}
           <li class="nav-item">
             <a class="nav-link {{ Request::is('projects*') ? 'active' : '' }}" href="{{ url('/projects') }}">Projects</a>
           </li>
-
-          {{-- Partners --}}
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('partners*') ? 'active' : '' }}" href="{{ url('/partners') }}">Partners</a>
-          </li>
-
-          {{-- Solutions Dropdown --}}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle {{ (Request::is('services*') || Request::is('applications*')) ? 'active' : '' }}"
-               href="#" id="solutionsDropdown" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">
+              href="#" id="solutionsDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
               Solutions
             </a>
             <ul class="dropdown-menu site-dropdown" aria-labelledby="solutionsDropdown">
@@ -91,13 +71,26 @@
               <li><a class="dropdown-item {{ Request::is('applications*') ? 'active' : '' }}" href="{{ url('/applications') }}">Products</a></li>
             </ul>
           </li>
-
-          {{-- Resources --}}
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('resources*') ? 'active' : '' }}" href="{{ url('/resources') }}">Resources</a>
+            <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}" href="{{ url('/blog') }}">Blog</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {{ (Request::is('ecosystem*') || Request::is('partners*')) ? 'active' : '' }}"
+              href="#" id="solutionsDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Ecosystem
+            </a>
+            <ul class="dropdown-menu site-dropdown" aria-labelledby="solutionsDropdown">
+              <li class="nav-item">
+                <a class="dropdown-item {{ Request::is('partners*') ? 'active' : '' }}" href="{{ url('/partners') }}">Partners</a>
+              </li>
+              <li class="nav-item">
+                <a class="dropdown-item {{ Request::is('resources*') ? 'active' : '' }}" href="{{ url('/resources') }}">Resources</a>
+              </li>
+            </ul>
           </li>
-
-          {{-- Contact --}}
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('team*') ? 'active' : '' }}" href="{{ url('/team') }}">Team</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link contact-btn {{ Request::is('contact*') ? 'active' : '' }}" href="{{ url('/contact') }}">Contact Us</a>
           </li>
@@ -208,6 +201,8 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{ asset('js/main.js') }}"></script>
+  @include('frontend.chatbot')
   @stack('scripts')
 </body>
+
 </html>

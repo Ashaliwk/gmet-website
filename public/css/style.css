@@ -646,6 +646,136 @@ a {
     color: #4d584e;
     line-height: 1.75;
 }
+/* ===== Services overview section (append to the end of style.css) ===== */
+
+.services-overview .section-heading {
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3.25rem;
+}
+.services-overview .section-heading h2 {
+    color: var(--gmet-dark);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+.services-overview .section-heading p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Card */
+.services-overview .mini-service {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2rem 1.75rem 1.9rem;
+    background: #fff;
+    border: 1px solid #dfe9dc;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(25, 70, 30, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+/* red accent bar that grows on hover */
+.services-overview .mini-service::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gmet-red), var(--gmet-green));
+    transform: scaleX(0.18);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+.services-overview .mini-service:hover {
+    transform: translateY(-6px);
+    border-color: rgba(31, 93, 43, 0.35);
+    box-shadow: 0 22px 44px rgba(18, 59, 29, 0.12);
+}
+.services-overview .mini-service:hover::before {
+    transform: scaleX(1);
+}
+
+/* Number badge */
+.services-overview .mini-service-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    min-width: 3rem;
+    height: 2rem;
+    padding: 0 0.75rem;
+    margin-bottom: 1.1rem;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: var(--gmet-green);
+    background: var(--gmet-light);
+    border-radius: 999px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.services-overview .mini-service:hover .mini-service-num {
+    background: var(--gmet-green);
+    color: #fff;
+}
+
+.services-overview .mini-service h3 {
+    margin: 0 0 0.65rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--gmet-dark);
+}
+.services-overview .mini-service p {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+/* Empty state */
+.services-overview .services-empty {
+    padding: 2.5rem 1rem;
+    color: var(--muted);
+    background: #fff;
+    border: 1px dashed #cfdccb;
+    border-radius: 1rem;
+}
+
+/* Button area */
+.services-overview .services-cta {
+    margin-top: 3.5rem;
+}
+.services-overview .services-cta .btn-gmet {
+    padding: 0.95rem 2.2rem;
+    box-shadow: 0 10px 24px rgba(229, 57, 53, 0.25);
+}
+.services-overview .services-cta .btn-gmet:hover {
+    box-shadow: 0 14px 30px rgba(229, 57, 53, 0.35);
+}
+
+/* Staggered reveal (uses --reveal-delay set in the markup) */
+.services-overview .reveal {
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+@media (max-width: 575px) {
+    .services-overview .section-heading { margin-bottom: 2.25rem; }
+    .services-overview .mini-service { padding: 1.6rem 1.4rem; }
+    .services-overview .services-cta { margin-top: 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .services-overview .mini-service,
+    .services-overview .mini-service::before,
+    .services-overview .reveal { transition: none; }
+    .services-overview .mini-service:hover { transform: none; }
+}
 .service-box {
     height: 100%;
     padding: 1.5rem;
