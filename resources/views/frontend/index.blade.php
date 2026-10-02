@@ -11,7 +11,7 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c1.png') }}');4">
-          <div class="hero-overlay"></div>
+          <div class="heroy"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
               <div class="col-lg-8 col-xl-7 hero-content mt-4">
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c2.png') }}');">
-          <div class="hero-overlay"></div>
+          <div class="heroy"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
               <div class="col-lg-8 col-xl-7 hero-content mt-4">
@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c3.png') }}');">
-          <div class="hero-overlay"></div>
+          <div class="heroy"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
               <div class="col-lg-8 col-xl-7 hero-content mt-4">
