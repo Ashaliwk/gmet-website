@@ -12,6 +12,7 @@ use App\Models\backend\Partners;
 use App\Models\backend\Contact;
 use App\Models\backend\FAQs;
 use App\Models\backend\Reviews;
+use App\Models\backend\satelliteimagery;
 
 class AdminHomeController extends Controller
 {
@@ -28,6 +29,7 @@ class AdminHomeController extends Controller
             $TotalContacts = Contact::count();
             $TotalFAQs     = FAQs::count();
             $TotalReviews  = Reviews::count();
+            $TotalSatelliteImagery = satelliteimagery::count();
 
             // Backwards compatibility aliases
             $TotalShopProduct = $TotalPartners;
@@ -42,6 +44,7 @@ class AdminHomeController extends Controller
                 'TotalServices',
                 'TotalTeam',
                 'TotalProjects',
+                'TotalSatelliteImagery',
                 'TotalPartners',
                 'TotalContacts',
                 'TotalFAQs',

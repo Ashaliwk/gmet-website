@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="ndviGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2914"/>
+      <stop offset="40%" stop-color="#194d24"/>
+      <stop offset="100%" stop-color="#2d6a4f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#ndviGrad)"/>
+  <!-- Field Patterns in False Color / NDVI Palette -->
+  <g opacity="0.85">
+    <polygon points="60,220 220,180 260,290 90,320" fill="#2d6a4f" stroke="#74c69d" stroke-width="1.5"/>
+    <polygon points="230,175 420,140 450,260 270,285" fill="#40916c" stroke="#95d5b2" stroke-width="1.5"/>
+    <polygon points="430,135 640,110 680,240 460,255" fill="#52b788" stroke="#b7e4c7" stroke-width="1.5"/>
+    <polygon points="650,105 780,90 810,210 690,235" fill="#d8f3dc" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>
+    
+    <polygon points="80,335 250,305 290,430 110,460" fill="#1b4332" stroke="#52b788" stroke-width="1.5"/>
+    <polygon points="265,300 465,275 510,410 300,435" fill="#2d6a4f" stroke="#74c69d" stroke-width="1.5"/>
+    <polygon points="480,270 700,245 745,390 525,415" fill="#74c69d" stroke="#d8f3dc" stroke-width="1.5"/>
+  </g>
+  <!-- NDVI Scale Legend Bar -->
+  <g transform="translate(620, 360)">
+    <rect x="0" y="0" width="140" height="95" rx="8" fill="rgba(12,38,19,0.85)" stroke="#52b788" stroke-width="1"/>
+    <text x="12" y="24" fill="#ffffff" font-family="sans-serif" font-weight="700" font-size="12">NDVI SPECTRUM</text>
+    <defs>
+      <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#e63946"/>
+        <stop offset="50%" stop-color="#ffb703"/>
+        <stop offset="100%" stop-color="#2a9d8f"/>
+      </linearGradient>
+    </defs>
+    <rect x="12" y="34" width="116" height="14" rx="3" fill="url(#barGrad)"/>
+    <text x="12" y="65" fill="#ffffff" font-family="monospace" font-size="10">0.0 (Soil)</text>
+    <text x="82" y="65" fill="#ffffff" font-family="monospace" font-size="10">+0.85 (Vigor)</text>
+    <text x="12" y="82" fill="#95d5b2" font-family="monospace" font-size="10">SENTINEL-2 / PLEIADES</text>
+  </g>
+  <!-- Overlay Scan Lines -->
+  <line x1="0" y1="230" x2="800" y2="230" stroke="#74c69d" stroke-width="1" stroke-dasharray="10,6" opacity="0.4"/>
+  <!-- HUD Titles -->
+  <text x="40" y="60" fill="#95d5b2" font-family="monospace" font-size="14" letter-spacing="2">GMET // MULTISPECTRAL REMOTE SENSING</text>
+  <text x="40" y="88" fill="#ffffff" font-family="sans-serif" font-weight="800" font-size="24">Precision Crop Health &amp; NDVI Analysis</text>
+  <rect x="40" y="105" width="180" height="26" rx="4" fill="#1b4332" stroke="#52b788" stroke-width="1"/>
+  <text x="50" y="122" fill="#d8f3dc" font-family="monospace" font-size="12">MULTISPECTRAL (NIR/RED)</text>
+</svg>
