@@ -102,4 +102,9 @@
     </div>
   </section>
 </main>
+<div class="container mb-5"> 
+  <div class="row">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.9034728609045!2d73.07176517630407!3d33.63374473971144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df95da88cff691%3A0xcf9bcedfe227350b!2sRawal%20Mall%20And%20Residencia!5e0!3m2!1sen!2s!4v1790940819477!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+ </div>
+    </div>
 @endsection
