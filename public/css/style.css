@@ -2108,4 +2108,71 @@ a {
         margin-top: 0 !important;
     }
 }
+
+.logo-carousel-section {
+    --logo-gap: 90px;
+    --logo-height: 150px;
+    --logo-speed: 30s;
+}
+
+.logo-marquee {
+    overflow: hidden;
+    padding: 18px 0 26px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.logo-track {
+    display: flex;
+    width: max-content;
+    animation: logoScroll var(--logo-speed) linear infinite;
+}
+
+.logo-marquee:hover .logo-track {
+    animation-play-state: paused;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: var(--logo-gap);
+    padding-right: var(--logo-gap);
+}
+
+.logo-item img {
+    display: block;
+    height: var(--logo-height);
+    width: auto;
+    border: 1px solid #dfe8dc;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(18, 59, 29, 0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.logo-item img:hover {
+    transform: translateY(-6px);
+    border-color: rgba(31, 93, 43, 0.45);
+    box-shadow: 0 16px 36px rgba(18, 59, 29, 0.18);
+}
+
+@keyframes logoScroll {
+    to { transform: translateX(-50%); }
+}
+
+@media (max-width: 991px) {
+    .logo-carousel-section { --logo-height: 130px; --logo-gap: 20px; --logo-speed: 26s; }
+}
+@media (max-width: 767px) {
+    .logo-carousel-section { --logo-height: 110px; --logo-gap: 16px; --logo-speed: 22s; }
+}
+@media (max-width: 480px) {
+    .logo-carousel-section { --logo-height: 92px; --logo-gap: 14px; --logo-speed: 20s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-track { animation: none; }
+    .logo-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+    .logo-group[aria-hidden="true"] { display: none; }
+}
 /* THIS WEBSITE IS MADE BY MUHAMMAD ALI */
