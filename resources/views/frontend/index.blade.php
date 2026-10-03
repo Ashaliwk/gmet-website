@@ -16,7 +16,7 @@
               <div class="col-lg-8 col-xl-7 hero-content mt-4">
                 <span class="eyebrow light">Turning Data, Technology &amp; Ideas into Impact</span>
                 <h1>Shaping Tomorrow Through <span>Geo Intelligence</span></h1>
-                <p class="lead">Geo Mapping Engineering &amp; Technologies (GMET) delivers premier geospatial and IT engineering solutions for government, private, and development sectors</p>
+                <p class="lead">Geo Mapping Engineering &amp; Technologies delivers premier geospatial and IT engineering solutions for government, private, and development sectors</p>
                 <div class="d-flex flex-wrap gap-3 mt-4">
                   <a href="{{ url('/services') }}" class="btn btn-gmet">Explore Services</a>
                   <a href="{{ url('/contact') }}" class="btn btn-outline-gmet">Get In Touch</a>
@@ -113,7 +113,7 @@
               <span class="stat-number">2025</span><span>Founded</span>
             </div>
             <div>
-              <span class="stat-number">15+</span><span>Years of CEO's geospatial experience</span>
+              <span class="stat-number">20+</span><span>Years of CEO's geospatial experience</span>
             </div>
             <div>
               <span class="stat-number">{{ count($services) > 0 ? count($services) : '15' }}</span><span>Services &amp; solution areas</span>
