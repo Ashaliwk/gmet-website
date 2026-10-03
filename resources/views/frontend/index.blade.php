@@ -11,7 +11,6 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c1.png') }}');4">
-          <div class="heroy"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
               <div class="col-lg-8 col-xl-7 hero-content mt-4">
@@ -35,7 +34,6 @@
           </div>
         </div>
         <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c2.png') }}');">
-          <div class="heroy"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
               <div class="col-lg-8 col-xl-7 hero-content mt-4">
@@ -57,7 +55,6 @@
           </div>
         </div>
         <div class="carousel-item hero-slide" style="background-image: url('{{ asset('assets/profile-pages/c3.png') }}');">
-          <div class="heroy"></div>
           <div class="container position-relative h-100">
             <div class="row align-items-center h-100">
               <div class="col-lg-8 col-xl-7 hero-content mt-4">
@@ -126,35 +123,6 @@
       </div>
     </div>
   </section>
-
-<section class="section section-tint services-overview" aria-labelledby="services-heading">
-    <div class="container">
-        <div class="section-heading text-center reveal">
-            <span class="eyebrow">What We Do</span>
-            <h2 id="services-heading">Integrated Services &amp; Solutions</h2>
-            <p>Explore the capabilities presented in the GMET company profile.</p>
-        </div>
-        <div class="row g-4 justify-content-center">
-            @forelse($services as $srv)
-                <div class="col-md-6 col-lg-4 reveal" style="--reveal-delay: {{ min($loop->index % 3, 2) * 90 }}ms">
-                    <article class="mini-service">
-                        <span class="mini-service-num">{{ str_pad($loop->iteration, 3, '0', STR_PAD_LEFT) }}</span>
-                        <h3>{{ $srv->title }}</h3>
-                        <p>{{ Str::limit($srv->description, 140) }}</p>
-                    </article>
-                </div>
-            @empty
-                <div class="col-12">
-                    <div class="services-empty text-center">Services are being updated. Please check back soon.</div>
-                </div>
-            @endforelse
-        </div>
-        <div class="text-center services-cta">
-            <a class="btn btn-gmet" href="{{ url('/services') }}">View All Services</a>
-        </div>
-
-    </div>
-</section>
 
   <section class="why-choose-section">
     <div class="container">
@@ -312,48 +280,7 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-heading text-center reveal">
-        <span class="eyebrow">Meet Our Team</span>
-        <h2>People behind the geospatial work.</h2>
-      </div>
-      <div class="row g-4">
-        @forelse($team as $m)
-        <div class="col-md-6 col-xl-4 reveal">
-          <article class="team-card">
-            <div class="team-img-wrap">
-              @if($m->image && file_exists(public_path('assets/images/' . $m->image)))
-              <img
-                src="{{ asset('assets/images/' . $m->image) }}"
-                alt="{{ $m->fullname }}" />
-              @elseif($m->image && file_exists(public_path('uploads/team/' . $m->image)))
-              <img
-                src="{{ asset('uploads/team/' . $m->image) }}"
-                alt="{{ $m->fullname }}" />
-              @else
-              <img
-                src="{{ asset('assets/images/gmet-logo.jpeg') }}"
-                alt="{{ $m->fullname }}" />
-              @endif
-            </div>
-            <div class="team-meta">
-              <span>{{ $m->designation }}</span>
-              <h3>{{ $m->fullname }}</h3>
-              <p>{{ Str::limit($m->intro, 190) }}</p>
-            </div>
-          </article>
-        </div>
-        @empty
-        <div class="col-12 text-center text-muted">No team members listed yet.</div>
-        @endforelse
-      </div>
-      <div class="text-center mt-5">
-        <a class="btn btn-outline-gmet-dark" href="{{ url('/team') }}">Meet the Full Team</a>
-      </div>
-    </div>
-  </section>
-
+  @include('frontend.partials.logo-carousel')
   <section class="section contact-strip">
     <div class="container">
       <div class="row align-items-center g-4">
