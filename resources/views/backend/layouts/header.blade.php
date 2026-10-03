@@ -119,6 +119,21 @@
                 </div>
             </li>
 
+            <!-- Satellite Imagery -->
+            <li class="nav-item {{ Request::is('admin/satellite-imagery*') ? 'active':''}}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSatellite"
+                    aria-expanded="true" aria-controls="collapseSatellite">
+                    <i class="fas fa-fw fa-satellite"></i>
+                    <span>Satellite Imagery</span>
+                </a>
+                <div id="collapseSatellite" class="collapse {{ Request::is('admin/satellite-imagery*') ? 'show':''}}" aria-labelledby="headingSatellite" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ Request::is('admin/satellite-imagery') ? 'active':''}}" href="{{url('/admin/satellite-imagery')}}">All Imagery Projects</a>
+                        <a class="collapse-item {{ Request::is('admin/satellite-imagery-add') ? 'active':''}}" href="{{url('/admin/satellite-imagery-add')}}">Add New Project</a>
+                    </div>
+                </div>
+            </li>
+
             {{-- Partners feature removed --}}
             <li class="nav-item {{ Request::is('admin/blog*') ? 'active':''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog"

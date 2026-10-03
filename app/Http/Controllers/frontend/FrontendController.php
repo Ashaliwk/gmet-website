@@ -11,6 +11,7 @@ use App\Models\backend\Partners;
 use App\Models\backend\Contact;
 use App\Models\backend\Application;
 use App\Models\backend\ApplicationRegistration;
+use App\Models\backend\satelliteimagery;
 
 class FrontendController extends Controller
 {
@@ -124,6 +125,16 @@ class FrontendController extends Controller
         return view('frontend.partners', compact('partners', 'clients'));
     }
 
+    public function satelliteimagery()
+    {
+        $imageryProjects = satelliteimagery::where('status', 1)
+            ->orderBy('order', 'asc')
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('frontend.satelliteimagery', compact('imageryProjects'));
+    }
+
     public function resources()
     {
         return view('frontend.resources');
@@ -180,5 +191,10 @@ class FrontendController extends Controller
     public function apiPartners()
     {
         return response()->json(Partners::where('status', 1)->orderBy('order', 'asc')->get());
+    }
+
+    public function apiSatelliteImagery()
+    {
+        return response()->json(satelliteimagery::where('status', 1)->orderBy('order', 'asc')->get());
     }
 }

@@ -61,7 +61,7 @@
             <a class="nav-link {{ Request::is('projects*') ? 'active' : '' }}" href="{{ url('/projects') }}">Projects</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {{ (Request::is('services*') || Request::is('applications*')) ? 'active' : '' }}"
+            <a class="nav-link dropdown-toggle {{ (Request::is('services*') || Request::is('applications*') || Request::is('satelliteimagery*') || Request::is('satellite-imagery*')) ? 'active' : '' }}"
               href="#" id="solutionsDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
               Solutions
@@ -69,6 +69,7 @@
             <ul class="dropdown-menu site-dropdown" aria-labelledby="solutionsDropdown">
               <li><a class="dropdown-item {{ Request::is('services*') ? 'active' : '' }}" href="{{ url('/services') }}">Services</a></li>
               <li><a class="dropdown-item {{ Request::is('applications*') ? 'active' : '' }}" href="{{ url('/applications') }}">Products</a></li>
+              <li><a class="dropdown-item {{ (Request::is('satelliteimagery*') || Request::is('satellite-imagery*')) ? 'active' : '' }}" href="{{ url('/satelliteimagery') }}">Satellite Imagery</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -158,6 +159,7 @@
           </h6>
           <div class="ms-4">
             <a href="{{ url('/services') }}">Web GIS</a>
+            <a href="{{ url('/satelliteimagery') }}">Satellite Imagery</a>
             <a href="{{ url('/services') }}">GeoAI</a>
             <a href="{{ url('/services') }}">LULC</a>
             <a href="{{ url('/services') }}">Landslide Mapping</a>

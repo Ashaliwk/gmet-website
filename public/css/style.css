@@ -2090,5 +2090,22 @@ a {
         color: var(--gmet-green);
     }
 }
-
+/* Desktop: center hero text in the visible area below the navbar */
+@media (min-width: 992px) {
+    .hero-carousel .hero-slide > .container {
+        height: 100vh !important;
+        padding-top: 98px;
+        display: flex;
+        align-items: center;
+    }
+    .hero-carousel .hero-slide > .container > .row {
+        width: 100%;
+        height: auto !important;
+    }
+    .hero-carousel .hero-content {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: 0 !important;
+    }
+}
 /* THIS WEBSITE IS MADE BY MUHAMMAD ALI */

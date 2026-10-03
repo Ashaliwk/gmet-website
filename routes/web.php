@@ -16,6 +16,7 @@ use App\Http\Controllers\backend\AdminContactsController;
 use App\Http\Controllers\backend\AdminFaqsController;
 use App\Http\Controllers\backend\AdminReviewController;
 use App\Http\Controllers\backend\AdminApplicationsController;
+use App\Http\Controllers\backend\satelliteimagerycontroller;
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.home');
 Route::get('/about', [FrontendController::class, 'about'])->name('frontend.about');
@@ -25,6 +26,10 @@ Route::get('/projects', [FrontendController::class, 'projects'])->name('frontend
 Route::get('/applications', [FrontendController::class, 'applications'])->name('frontend.applications');
 Route::get('/applications/{id}/register', [FrontendController::class, 'showRegistrationForm'])->name('frontend.applications.register.form');
 Route::post('/applications/{id}/register', [FrontendController::class, 'applicationRegister'])->name('frontend.applications.register');
+Route::get('/satelliteimagery', [FrontendController::class, 'satelliteimagery'])->name('frontend.satelliteimagery');
+Route::get('/satellite-imagery', function () {
+    return redirect()->route('frontend.satelliteimagery');
+});
 Route::get('/partners', [FrontendController::class, 'partners'])->name('frontend.partners');
 Route::get('/resources', [FrontendController::class, 'resources'])->name('frontend.resources');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('frontend.contact');
@@ -39,6 +44,8 @@ Route::redirect('/pages/services.html', '/services');
 Route::redirect('/pages/team.html', '/team');
 Route::redirect('/pages/projects.html', '/projects');
 Route::redirect('/pages/applications.html', '/applications');
+Route::redirect('/pages/satelliteimagery.html', '/satelliteimagery');
+Route::redirect('/pages/satellite-imagery.html', '/satelliteimagery');
 Route::redirect('/pages/partners.html', '/partners');
 Route::redirect('/pages/resources.html', '/resources');
 Route::redirect('/pages/contact.html', '/contact');
@@ -49,6 +56,7 @@ Route::prefix('api')->group(function () {
     Route::get('/team', [FrontendController::class, 'apiTeam']);
     Route::get('/projects', [FrontendController::class, 'apiProjects']);
     Route::get('/partners', [FrontendController::class, 'apiPartners']);
+    Route::get('/satellite-imagery', [FrontendController::class, 'apiSatelliteImagery']);
     Route::post('/contact', [FrontendController::class, 'submitContact']);
 });
 
@@ -115,6 +123,15 @@ Route::delete('/admin/application-delete/{id}', [AdminApplicationsController::cl
 Route::patch('/admin/application-status/{id}', [AdminApplicationsController::class, 'toggleStatus'])->name('admin.applications.status');
 Route::get('/admin/application-registrations', [AdminApplicationsController::class, 'registrations'])->name('admin.applications.registrations');
 Route::delete('/admin/application-registration-delete/{id}', [AdminApplicationsController::class, 'deleteRegistration'])->name('admin.applications.registration.delete');
+
+// GMET Satellite Imagery Management
+Route::get('/admin/satellite-imagery', [satelliteimagerycontroller::class, 'index'])->name('admin.satellite.index');
+Route::get('/admin/satellite-imagery-add', [satelliteimagerycontroller::class, 'create'])->name('admin.satellite.create');
+Route::post('/admin/satellite-imagery-add', [satelliteimagerycontroller::class, 'store'])->name('admin.satellite.store');
+Route::get('/admin/satellite-imagery-edit/{id}', [satelliteimagerycontroller::class, 'edit'])->name('admin.satellite.edit');
+Route::put('/admin/satellite-imagery-edit/{id}', [satelliteimagerycontroller::class, 'update'])->name('admin.satellite.update');
+Route::delete('/admin/satellite-imagery-delete/{id}', [satelliteimagerycontroller::class, 'destroy'])->name('admin.satellite.delete');
+Route::patch('/admin/satellite-imagery-status/{id}', [satelliteimagerycontroller::class, 'toggleStatus'])->name('admin.satellite.status');
 
 // GMET Partners Management
 Route::get('/admin/partners', [AdminPartnersController::class, 'index'])->name('partner.show');
